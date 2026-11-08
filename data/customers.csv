@@ -1,0 +1,26 @@
+customer_id,customer_name,customer_type,segment,city,order_every_days
+C01,Bistro Castanul,Horeca,Restaurant,București,4
+C02,Restaurant Moara Veche,Horeca,Restaurant,București,4
+C03,Trattoria Pădurea,Horeca,Restaurant,Sibiu,5
+C04,Restaurant Hanul Verde,Horeca,Restaurant,Timișoara,6
+C05,Bistro Strada Mare,Horeca,Restaurant,Iași,5
+C06,Restaurant Grădina cu Tei,Horeca,Restaurant,Timișoara,3
+C07,Pizzeria Cuptorul,Horeca,Restaurant,Iași,4
+C08,Restaurant Malul Lacului,Horeca,Restaurant,Timișoara,4
+C09,Cafeneaua Boabe Calde,Horeca,Cafenea,Sibiu,3
+C10,Café Colț de Carte,Horeca,Cafenea,Sibiu,4
+C11,Cafeneaua Ceașca Albastră,Horeca,Cafenea,Cluj-Napoca,4
+C12,Cafeneaua Piața Mică,Horeca,Cafenea,Cluj-Napoca,3
+C13,Café Fereastra,Horeca,Cafenea,Sibiu,4
+C14,Hotel Panorama,Horeca,Hotel,Timișoara,5
+C15,Hotel Brazii,Horeca,Hotel,Iași,5
+C16,Pensiunea Valea Însorită,Horeca,Hotel,Iași,7
+C17,Hotel Central Parc,Horeca,Hotel,București,8
+C18,Hotel Lacul Albastru,Horeca,Hotel,Brașov,7
+C19,Minimarket La Colț,Retail,Magazin,Cluj-Napoca,9
+C20,Magazinul Familiei,Retail,Magazin,București,8
+C21,Alimentara Cartier 3,Retail,Magazin,Sibiu,8
+C22,Minimarket Stejarul,Retail,Magazin,București,10
+C23,Magazin Mixt Nord,Retail,Magazin,Sibiu,6
+C24,Alimentara Bulevard,Retail,Magazin,Cluj-Napoca,11
+C25,Minimarket Răsărit,Retail,Magazin,Cluj-Napoca,11

@@ -1,0 +1,31 @@
+product_id,product_name,category,unit,price_ron,stock_units,lead_time_days
+P01,"Cartofi prăjiți congelați 2,5 kg",Congelate,pungă,32.0,17,7
+P02,Legume mexicane congelate 1 kg,Congelate,pungă,14.5,206,6
+P03,Mazăre congelată 1 kg,Congelate,pungă,11.0,146,5
+P04,Pizza margherita congelată (bax 6),Congelate,bax,96.0,659,5
+P05,Croissant cu unt congelat (bax 40),Congelate,bax,138.0,62,6
+P06,Înghețată vanilie 5 L,Congelate,cutie,85.0,111,7
+P07,Înghețată ciocolată 5 L,Congelate,cutie,89.0,44,7
+P08,File de pește congelat 1 kg,Congelate,pungă,46.0,52,6
+P09,Chiftele de vită congelate 2 kg,Congelate,pungă,68.0,72,7
+P10,Clătite congelate (bax 20),Congelate,bax,54.0,53,7
+P11,"Lapte 3,5% 1 L",Lactate,litru,7.2,148,2
+P12,Smântână 20% 1 kg,Lactate,găleată,19.5,144,2
+P13,Brânză telemea 1 kg,Lactate,kg,34.0,63,3
+P14,Cașcaval 1 kg,Lactate,kg,42.0,79,3
+P15,Mozzarella 1 kg,Lactate,kg,38.0,34,2
+P16,Unt 82% 1 kg,Lactate,kg,48.0,39,3
+P17,Iaurt natural 1 kg,Lactate,găleată,12.5,199,3
+P18,Frișcă lichidă 1 L,Lactate,litru,21.0,130,3
+P19,Brânză de vaci 1 kg,Lactate,kg,22.0,61,3
+P20,Lapte pentru barista 1 L,Lactate,litru,8.9,245,3
+P21,"Apă plată 0,5 L (bax 12)",Băuturi,bax,18.0,237,3
+P22,"Apă minerală 0,5 L (bax 12)",Băuturi,bax,19.0,423,4
+P23,Suc de portocale 1 L,Băuturi,litru,9.5,120,3
+P24,"Limonadă 0,33 L (bax 24)",Băuturi,bax,72.0,93,4
+P25,"Cola 0,33 L (bax 24)",Băuturi,bax,66.0,104,4
+P26,Cafea boabe 1 kg,Băuturi,kg,95.0,166,4
+P27,Ceai negru (100 plicuri),Băuturi,cutie,28.0,47,5
+P28,"Bere fără alcool 0,5 L (bax 20)",Băuturi,bax,84.0,6,4
+P29,"Vin alb sec 0,75 L",Băuturi,sticlă,29.0,624,4
+P30,Sirop de soc 1 L,Băuturi,sticlă,24.0,43,4

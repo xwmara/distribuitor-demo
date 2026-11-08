@@ -1,0 +1,943 @@
+date,season,fasting_period,is_fasting,event,temperature_c,temperature_type
+2024-11-01,toamnă,,False,,7.3,istoric simulat
+2024-11-02,toamnă,,False,,7.7,istoric simulat
+2024-11-03,toamnă,,False,Black Friday,5.2,istoric simulat
+2024-11-04,toamnă,,False,Black Friday,7.0,istoric simulat
+2024-11-05,toamnă,,False,Black Friday,8.6,istoric simulat
+2024-11-06,toamnă,,False,Black Friday,3.9,istoric simulat
+2024-11-07,toamnă,,False,Black Friday,1.8,istoric simulat
+2024-11-08,toamnă,,False,Black Friday,3.2,istoric simulat
+2024-11-09,toamnă,,False,Black Friday,3.2,istoric simulat
+2024-11-10,toamnă,,False,Black Friday,3.7,istoric simulat
+2024-11-11,toamnă,,False,,2.4,istoric simulat
+2024-11-12,toamnă,,False,,4.9,istoric simulat
+2024-11-13,toamnă,,False,,6.3,istoric simulat
+2024-11-14,toamnă,,False,,5.9,istoric simulat
+2024-11-15,toamnă,Postul Crăciunului,True,,7.7,istoric simulat
+2024-11-16,toamnă,Postul Crăciunului,True,,7.5,istoric simulat
+2024-11-17,toamnă,Postul Crăciunului,True,,4.7,istoric simulat
+2024-11-18,toamnă,Postul Crăciunului,True,,5.2,istoric simulat
+2024-11-19,toamnă,Postul Crăciunului,True,,2.8,istoric simulat
+2024-11-20,toamnă,Postul Crăciunului,True,,4.7,istoric simulat
+2024-11-21,toamnă,Postul Crăciunului,True,,4.2,istoric simulat
+2024-11-22,toamnă,Postul Crăciunului,True,,3.5,istoric simulat
+2024-11-23,toamnă,Postul Crăciunului,True,,2.0,istoric simulat
+2024-11-24,toamnă,Postul Crăciunului,True,,4.7,istoric simulat
+2024-11-25,toamnă,Postul Crăciunului,True,,3.7,istoric simulat
+2024-11-26,toamnă,Postul Crăciunului,True,,2.5,istoric simulat
+2024-11-27,toamnă,Postul Crăciunului,True,,1.8,istoric simulat
+2024-11-28,toamnă,Postul Crăciunului,True,,3.0,istoric simulat
+2024-11-29,toamnă,Postul Crăciunului,True,,3.4,istoric simulat
+2024-11-30,toamnă,Postul Crăciunului,True,,3.8,istoric simulat
+2024-12-01,iarnă,Postul Crăciunului,True,,4.1,istoric simulat
+2024-12-02,iarnă,Postul Crăciunului,True,,7.6,istoric simulat
+2024-12-03,iarnă,Postul Crăciunului,True,,5.0,istoric simulat
+2024-12-04,iarnă,Postul Crăciunului,True,,2.9,istoric simulat
+2024-12-05,iarnă,Postul Crăciunului,True,,0.8,istoric simulat
+2024-12-06,iarnă,Postul Crăciunului,True,,2.1,istoric simulat
+2024-12-07,iarnă,Postul Crăciunului,True,,4.1,istoric simulat
+2024-12-08,iarnă,Postul Crăciunului,True,,2.9,istoric simulat
+2024-12-09,iarnă,Postul Crăciunului,True,,0.6,istoric simulat
+2024-12-10,iarnă,Postul Crăciunului,True,Crăciun,-1.0,istoric simulat
+2024-12-11,iarnă,Postul Crăciunului,True,Crăciun,0.8,istoric simulat
+2024-12-12,iarnă,Postul Crăciunului,True,Crăciun,2.2,istoric simulat
+2024-12-13,iarnă,Postul Crăciunului,True,Crăciun,2.7,istoric simulat
+2024-12-14,iarnă,Postul Crăciunului,True,Crăciun,0.7,istoric simulat
+2024-12-15,iarnă,Postul Crăciunului,True,Crăciun,1.0,istoric simulat
+2024-12-16,iarnă,Postul Crăciunului,True,Crăciun,1.0,istoric simulat
+2024-12-17,iarnă,Postul Crăciunului,True,Crăciun,1.1,istoric simulat
+2024-12-18,iarnă,Postul Crăciunului,True,Crăciun,2.5,istoric simulat
+2024-12-19,iarnă,Postul Crăciunului,True,Crăciun,2.2,istoric simulat
+2024-12-20,iarnă,Postul Crăciunului,True,Crăciun,2.8,istoric simulat
+2024-12-21,iarnă,Postul Crăciunului,True,Crăciun,2.0,istoric simulat
+2024-12-22,iarnă,Postul Crăciunului,True,Crăciun,1.9,istoric simulat
+2024-12-23,iarnă,Postul Crăciunului,True,Crăciun,2.5,istoric simulat
+2024-12-24,iarnă,Postul Crăciunului,True,Crăciun,-1.3,istoric simulat
+2024-12-25,iarnă,,False,,-1.7,istoric simulat
+2024-12-26,iarnă,,False,,-2.3,istoric simulat
+2024-12-27,iarnă,,False,,-3.1,istoric simulat
+2024-12-28,iarnă,,False,,-2.9,istoric simulat
+2024-12-29,iarnă,,False,,0.7,istoric simulat
+2024-12-30,iarnă,,False,,-1.5,istoric simulat
+2024-12-31,iarnă,,False,,0.7,istoric simulat
+2025-01-01,iarnă,,False,,-3.1,istoric simulat
+2025-01-02,iarnă,,False,,-3.1,istoric simulat
+2025-01-03,iarnă,,False,,-2.1,istoric simulat
+2025-01-04,iarnă,,False,,-0.6,istoric simulat
+2025-01-05,iarnă,,False,,0.7,istoric simulat
+2025-01-06,iarnă,,False,,1.8,istoric simulat
+2025-01-07,iarnă,,False,,0.3,istoric simulat
+2025-01-08,iarnă,,False,,-1.0,istoric simulat
+2025-01-09,iarnă,,False,,0.7,istoric simulat
+2025-01-10,iarnă,,False,,-0.2,istoric simulat
+2025-01-11,iarnă,,False,,-3.0,istoric simulat
+2025-01-12,iarnă,,False,,-4.7,istoric simulat
+2025-01-13,iarnă,,False,,-5.4,istoric simulat
+2025-01-14,iarnă,,False,,-3.1,istoric simulat
+2025-01-15,iarnă,,False,,-2.2,istoric simulat
+2025-01-16,iarnă,,False,,-0.4,istoric simulat
+2025-01-17,iarnă,,False,,-1.4,istoric simulat
+2025-01-18,iarnă,,False,,-1.0,istoric simulat
+2025-01-19,iarnă,,False,,0.3,istoric simulat
+2025-01-20,iarnă,,False,,-0.7,istoric simulat
+2025-01-21,iarnă,,False,,0.2,istoric simulat
+2025-01-22,iarnă,,False,,-1.4,istoric simulat
+2025-01-23,iarnă,,False,,-2.0,istoric simulat
+2025-01-24,iarnă,,False,,-2.4,istoric simulat
+2025-01-25,iarnă,,False,,-4.2,istoric simulat
+2025-01-26,iarnă,,False,,-2.2,istoric simulat
+2025-01-27,iarnă,,False,,-2.6,istoric simulat
+2025-01-28,iarnă,,False,,-2.0,istoric simulat
+2025-01-29,iarnă,,False,,-0.6,istoric simulat
+2025-01-30,iarnă,,False,,0.4,istoric simulat
+2025-01-31,iarnă,,False,,1.5,istoric simulat
+2025-02-01,iarnă,,False,,0.8,istoric simulat
+2025-02-02,iarnă,,False,,-0.4,istoric simulat
+2025-02-03,iarnă,,False,,-0.4,istoric simulat
+2025-02-04,iarnă,,False,,-3.7,istoric simulat
+2025-02-05,iarnă,,False,,-5.5,istoric simulat
+2025-02-06,iarnă,,False,,-6.4,istoric simulat
+2025-02-07,iarnă,,False,,-6.4,istoric simulat
+2025-02-08,iarnă,,False,,-3.6,istoric simulat
+2025-02-09,iarnă,,False,,-4.2,istoric simulat
+2025-02-10,iarnă,,False,,-3.5,istoric simulat
+2025-02-11,iarnă,,False,,0.3,istoric simulat
+2025-02-12,iarnă,,False,,-0.3,istoric simulat
+2025-02-13,iarnă,,False,,1.5,istoric simulat
+2025-02-14,iarnă,,False,,-0.5,istoric simulat
+2025-02-15,iarnă,,False,,-0.5,istoric simulat
+2025-02-16,iarnă,,False,,-1.9,istoric simulat
+2025-02-17,iarnă,,False,,-1.6,istoric simulat
+2025-02-18,iarnă,,False,,1.0,istoric simulat
+2025-02-19,iarnă,,False,,-2.3,istoric simulat
+2025-02-20,iarnă,,False,,-0.2,istoric simulat
+2025-02-21,iarnă,,False,,0.8,istoric simulat
+2025-02-22,iarnă,,False,,-0.0,istoric simulat
+2025-02-23,iarnă,,False,,-2.3,istoric simulat
+2025-02-24,iarnă,,False,,-0.8,istoric simulat
+2025-02-25,iarnă,,False,,-0.9,istoric simulat
+2025-02-26,iarnă,,False,,0.6,istoric simulat
+2025-02-27,iarnă,,False,,1.2,istoric simulat
+2025-02-28,iarnă,,False,,4.9,istoric simulat
+2025-03-01,primăvară,,False,,3.8,istoric simulat
+2025-03-02,primăvară,,False,,1.6,istoric simulat
+2025-03-03,primăvară,Postul Paștelui,True,,2.4,istoric simulat
+2025-03-04,primăvară,Postul Paștelui,True,,3.2,istoric simulat
+2025-03-05,primăvară,Postul Paștelui,True,,6.0,istoric simulat
+2025-03-06,primăvară,Postul Paștelui,True,,7.0,istoric simulat
+2025-03-07,primăvară,Postul Paștelui,True,,6.8,istoric simulat
+2025-03-08,primăvară,Postul Paștelui,True,,8.9,istoric simulat
+2025-03-09,primăvară,Postul Paștelui,True,,5.1,istoric simulat
+2025-03-10,primăvară,Postul Paștelui,True,,3.6,istoric simulat
+2025-03-11,primăvară,Postul Paștelui,True,,2.1,istoric simulat
+2025-03-12,primăvară,Postul Paștelui,True,,2.1,istoric simulat
+2025-03-13,primăvară,Postul Paștelui,True,,0.2,istoric simulat
+2025-03-14,primăvară,Postul Paștelui,True,,3.0,istoric simulat
+2025-03-15,primăvară,Postul Paștelui,True,,3.2,istoric simulat
+2025-03-16,primăvară,Postul Paștelui,True,,1.0,istoric simulat
+2025-03-17,primăvară,Postul Paștelui,True,,0.3,istoric simulat
+2025-03-18,primăvară,Postul Paștelui,True,,2.6,istoric simulat
+2025-03-19,primăvară,Postul Paștelui,True,,5.3,istoric simulat
+2025-03-20,primăvară,Postul Paștelui,True,,9.6,istoric simulat
+2025-03-21,primăvară,Postul Paștelui,True,,14.5,istoric simulat
+2025-03-22,primăvară,Postul Paștelui,True,,12.9,istoric simulat
+2025-03-23,primăvară,Postul Paștelui,True,,9.1,istoric simulat
+2025-03-24,primăvară,Postul Paștelui,True,,4.2,istoric simulat
+2025-03-25,primăvară,Postul Paștelui,True,,5.7,istoric simulat
+2025-03-26,primăvară,Postul Paștelui,True,,4.6,istoric simulat
+2025-03-27,primăvară,Postul Paștelui,True,,4.6,istoric simulat
+2025-03-28,primăvară,Postul Paștelui,True,,4.4,istoric simulat
+2025-03-29,primăvară,Postul Paștelui,True,,5.2,istoric simulat
+2025-03-30,primăvară,Postul Paștelui,True,,8.2,istoric simulat
+2025-03-31,primăvară,Postul Paștelui,True,,8.6,istoric simulat
+2025-04-01,primăvară,Postul Paștelui,True,,8.3,istoric simulat
+2025-04-02,primăvară,Postul Paștelui,True,,6.4,istoric simulat
+2025-04-03,primăvară,Postul Paștelui,True,,3.8,istoric simulat
+2025-04-04,primăvară,Postul Paștelui,True,,4.5,istoric simulat
+2025-04-05,primăvară,Postul Paștelui,True,,5.8,istoric simulat
+2025-04-06,primăvară,Postul Paștelui,True,,10.5,istoric simulat
+2025-04-07,primăvară,Postul Paștelui,True,,10.6,istoric simulat
+2025-04-08,primăvară,Postul Paștelui,True,,12.4,istoric simulat
+2025-04-09,primăvară,Postul Paștelui,True,,10.7,istoric simulat
+2025-04-10,primăvară,Postul Paștelui,True,Paște,8.3,istoric simulat
+2025-04-11,primăvară,Postul Paștelui,True,Paște,7.1,istoric simulat
+2025-04-12,primăvară,Postul Paștelui,True,Paște,6.8,istoric simulat
+2025-04-13,primăvară,Postul Paștelui,True,Paște,12.3,istoric simulat
+2025-04-14,primăvară,Postul Paștelui,True,Paște,10.4,istoric simulat
+2025-04-15,primăvară,Postul Paștelui,True,Paște,12.4,istoric simulat
+2025-04-16,primăvară,Postul Paștelui,True,Paște,10.4,istoric simulat
+2025-04-17,primăvară,Postul Paștelui,True,Paște,12.7,istoric simulat
+2025-04-18,primăvară,Postul Paștelui,True,Paște,13.3,istoric simulat
+2025-04-19,primăvară,Postul Paștelui,True,Paște,12.7,istoric simulat
+2025-04-20,primăvară,,False,,12.5,istoric simulat
+2025-04-21,primăvară,,False,,11.3,istoric simulat
+2025-04-22,primăvară,,False,,12.7,istoric simulat
+2025-04-23,primăvară,,False,,11.9,istoric simulat
+2025-04-24,primăvară,,False,,9.9,istoric simulat
+2025-04-25,primăvară,,False,,8.4,istoric simulat
+2025-04-26,primăvară,,False,,10.4,istoric simulat
+2025-04-27,primăvară,,False,,14.6,istoric simulat
+2025-04-28,primăvară,,False,,14.8,istoric simulat
+2025-04-29,primăvară,,False,,14.4,istoric simulat
+2025-04-30,primăvară,,False,,15.0,istoric simulat
+2025-05-01,primăvară,,False,,17.5,istoric simulat
+2025-05-02,primăvară,,False,,17.2,istoric simulat
+2025-05-03,primăvară,,False,,15.7,istoric simulat
+2025-05-04,primăvară,,False,,17.8,istoric simulat
+2025-05-05,primăvară,,False,,18.0,istoric simulat
+2025-05-06,primăvară,,False,,20.4,istoric simulat
+2025-05-07,primăvară,,False,,19.4,istoric simulat
+2025-05-08,primăvară,,False,,15.9,istoric simulat
+2025-05-09,primăvară,,False,,13.3,istoric simulat
+2025-05-10,primăvară,,False,,17.5,istoric simulat
+2025-05-11,primăvară,,False,,20.7,istoric simulat
+2025-05-12,primăvară,,False,,19.2,istoric simulat
+2025-05-13,primăvară,,False,,17.8,istoric simulat
+2025-05-14,primăvară,,False,,20.5,istoric simulat
+2025-05-15,primăvară,,False,,17.3,istoric simulat
+2025-05-16,primăvară,,False,,15.6,istoric simulat
+2025-05-17,primăvară,,False,,17.5,istoric simulat
+2025-05-18,primăvară,,False,,16.8,istoric simulat
+2025-05-19,primăvară,,False,,17.2,istoric simulat
+2025-05-20,primăvară,,False,,17.2,istoric simulat
+2025-05-21,primăvară,,False,,18.2,istoric simulat
+2025-05-22,primăvară,,False,,21.1,istoric simulat
+2025-05-23,primăvară,,False,,20.6,istoric simulat
+2025-05-24,primăvară,,False,,21.3,istoric simulat
+2025-05-25,primăvară,,False,,16.5,istoric simulat
+2025-05-26,primăvară,,False,,17.2,istoric simulat
+2025-05-27,primăvară,,False,,16.2,istoric simulat
+2025-05-28,primăvară,,False,,14.7,istoric simulat
+2025-05-29,primăvară,,False,,14.4,istoric simulat
+2025-05-30,primăvară,,False,,15.3,istoric simulat
+2025-05-31,primăvară,,False,,18.5,istoric simulat
+2025-06-01,vară,,False,,16.3,istoric simulat
+2025-06-02,vară,,False,,17.5,istoric simulat
+2025-06-03,vară,,False,,17.4,istoric simulat
+2025-06-04,vară,,False,,17.6,istoric simulat
+2025-06-05,vară,,False,,20.5,istoric simulat
+2025-06-06,vară,,False,,21.6,istoric simulat
+2025-06-07,vară,,False,,24.1,istoric simulat
+2025-06-08,vară,,False,,22.8,istoric simulat
+2025-06-09,vară,,False,,20.9,istoric simulat
+2025-06-10,vară,,False,,20.5,istoric simulat
+2025-06-11,vară,,False,,21.2,istoric simulat
+2025-06-12,vară,,False,,21.6,istoric simulat
+2025-06-13,vară,,False,,19.4,istoric simulat
+2025-06-14,vară,,False,,20.2,istoric simulat
+2025-06-15,vară,,False,,21.1,istoric simulat
+2025-06-16,vară,,False,,26.3,istoric simulat
+2025-06-17,vară,,False,,28.7,istoric simulat
+2025-06-18,vară,,False,,25.0,istoric simulat
+2025-06-19,vară,,False,,23.5,istoric simulat
+2025-06-20,vară,,False,,20.2,istoric simulat
+2025-06-21,vară,,False,,19.6,istoric simulat
+2025-06-22,vară,,False,,21.0,istoric simulat
+2025-06-23,vară,,False,,23.8,istoric simulat
+2025-06-24,vară,,False,,21.9,istoric simulat
+2025-06-25,vară,,False,,20.8,istoric simulat
+2025-06-26,vară,,False,,17.0,istoric simulat
+2025-06-27,vară,,False,,18.3,istoric simulat
+2025-06-28,vară,,False,,17.5,istoric simulat
+2025-06-29,vară,,False,,18.0,istoric simulat
+2025-06-30,vară,,False,,17.7,istoric simulat
+2025-07-01,vară,,False,,19.0,istoric simulat
+2025-07-02,vară,,False,,16.6,istoric simulat
+2025-07-03,vară,,False,,15.6,istoric simulat
+2025-07-04,vară,,False,,22.0,istoric simulat
+2025-07-05,vară,,False,,19.7,istoric simulat
+2025-07-06,vară,,False,,18.5,istoric simulat
+2025-07-07,vară,,False,,23.5,istoric simulat
+2025-07-08,vară,,False,,29.1,istoric simulat
+2025-07-09,vară,,False,,25.0,istoric simulat
+2025-07-10,vară,,False,,23.6,istoric simulat
+2025-07-11,vară,,False,,24.1,istoric simulat
+2025-07-12,vară,,False,,27.2,istoric simulat
+2025-07-13,vară,,False,,24.0,istoric simulat
+2025-07-14,vară,,False,,23.2,istoric simulat
+2025-07-15,vară,,False,,24.7,istoric simulat
+2025-07-16,vară,,False,,25.1,istoric simulat
+2025-07-17,vară,,False,,23.7,istoric simulat
+2025-07-18,vară,,False,,23.2,istoric simulat
+2025-07-19,vară,,False,,20.4,istoric simulat
+2025-07-20,vară,,False,,20.7,istoric simulat
+2025-07-21,vară,,False,,20.8,istoric simulat
+2025-07-22,vară,,False,,21.9,istoric simulat
+2025-07-23,vară,,False,,21.1,istoric simulat
+2025-07-24,vară,,False,,22.5,istoric simulat
+2025-07-25,vară,,False,,24.6,istoric simulat
+2025-07-26,vară,,False,,24.4,istoric simulat
+2025-07-27,vară,,False,,24.6,istoric simulat
+2025-07-28,vară,,False,,24.1,istoric simulat
+2025-07-29,vară,,False,,23.6,istoric simulat
+2025-07-30,vară,,False,,21.8,istoric simulat
+2025-07-31,vară,,False,,22.7,istoric simulat
+2025-08-01,vară,Postul Adormirii Maicii Domnului,True,,22.4,istoric simulat
+2025-08-02,vară,Postul Adormirii Maicii Domnului,True,,26.5,istoric simulat
+2025-08-03,vară,Postul Adormirii Maicii Domnului,True,,28.4,istoric simulat
+2025-08-04,vară,Postul Adormirii Maicii Domnului,True,,27.3,istoric simulat
+2025-08-05,vară,Postul Adormirii Maicii Domnului,True,,24.2,istoric simulat
+2025-08-06,vară,Postul Adormirii Maicii Domnului,True,,21.3,istoric simulat
+2025-08-07,vară,Postul Adormirii Maicii Domnului,True,,23.9,istoric simulat
+2025-08-08,vară,Postul Adormirii Maicii Domnului,True,,23.8,istoric simulat
+2025-08-09,vară,Postul Adormirii Maicii Domnului,True,,24.1,istoric simulat
+2025-08-10,vară,Postul Adormirii Maicii Domnului,True,,19.9,istoric simulat
+2025-08-11,vară,Postul Adormirii Maicii Domnului,True,,22.2,istoric simulat
+2025-08-12,vară,Postul Adormirii Maicii Domnului,True,,22.9,istoric simulat
+2025-08-13,vară,Postul Adormirii Maicii Domnului,True,,20.2,istoric simulat
+2025-08-14,vară,Postul Adormirii Maicii Domnului,True,,19.6,istoric simulat
+2025-08-15,vară,,False,,20.6,istoric simulat
+2025-08-16,vară,,False,,20.8,istoric simulat
+2025-08-17,vară,,False,,20.3,istoric simulat
+2025-08-18,vară,,False,,20.2,istoric simulat
+2025-08-19,vară,,False,,19.8,istoric simulat
+2025-08-20,vară,,False,,20.4,istoric simulat
+2025-08-21,vară,,False,,23.3,istoric simulat
+2025-08-22,vară,,False,,17.3,istoric simulat
+2025-08-23,vară,,False,,17.7,istoric simulat
+2025-08-24,vară,,False,,18.7,istoric simulat
+2025-08-25,vară,,False,,19.7,istoric simulat
+2025-08-26,vară,,False,,18.9,istoric simulat
+2025-08-27,vară,,False,,15.6,istoric simulat
+2025-08-28,vară,,False,,17.4,istoric simulat
+2025-08-29,vară,,False,,21.4,istoric simulat
+2025-08-30,vară,,False,,17.7,istoric simulat
+2025-08-31,vară,,False,,19.8,istoric simulat
+2025-09-01,toamnă,,False,,18.9,istoric simulat
+2025-09-02,toamnă,,False,,18.7,istoric simulat
+2025-09-03,toamnă,,False,,16.5,istoric simulat
+2025-09-04,toamnă,,False,,16.4,istoric simulat
+2025-09-05,toamnă,,False,,19.5,istoric simulat
+2025-09-06,toamnă,,False,,20.2,istoric simulat
+2025-09-07,toamnă,,False,,23.0,istoric simulat
+2025-09-08,toamnă,,False,,23.8,istoric simulat
+2025-09-09,toamnă,,False,,22.8,istoric simulat
+2025-09-10,toamnă,,False,,24.6,istoric simulat
+2025-09-11,toamnă,,False,,23.3,istoric simulat
+2025-09-12,toamnă,,False,,23.0,istoric simulat
+2025-09-13,toamnă,,False,,20.6,istoric simulat
+2025-09-14,toamnă,,False,,19.5,istoric simulat
+2025-09-15,toamnă,,False,,17.2,istoric simulat
+2025-09-16,toamnă,,False,,18.9,istoric simulat
+2025-09-17,toamnă,,False,,15.7,istoric simulat
+2025-09-18,toamnă,,False,,17.3,istoric simulat
+2025-09-19,toamnă,,False,,16.4,istoric simulat
+2025-09-20,toamnă,,False,,18.5,istoric simulat
+2025-09-21,toamnă,,False,,19.0,istoric simulat
+2025-09-22,toamnă,,False,,21.5,istoric simulat
+2025-09-23,toamnă,,False,,21.0,istoric simulat
+2025-09-24,toamnă,,False,,16.0,istoric simulat
+2025-09-25,toamnă,,False,,15.4,istoric simulat
+2025-09-26,toamnă,,False,,12.7,istoric simulat
+2025-09-27,toamnă,,False,,12.1,istoric simulat
+2025-09-28,toamnă,,False,,15.7,istoric simulat
+2025-09-29,toamnă,,False,,16.4,istoric simulat
+2025-09-30,toamnă,,False,,14.1,istoric simulat
+2025-10-01,toamnă,,False,,11.8,istoric simulat
+2025-10-02,toamnă,,False,,12.3,istoric simulat
+2025-10-03,toamnă,,False,,10.0,istoric simulat
+2025-10-04,toamnă,,False,,9.5,istoric simulat
+2025-10-05,toamnă,,False,,11.0,istoric simulat
+2025-10-06,toamnă,,False,,13.7,istoric simulat
+2025-10-07,toamnă,,False,,14.4,istoric simulat
+2025-10-08,toamnă,,False,,9.1,istoric simulat
+2025-10-09,toamnă,,False,,10.5,istoric simulat
+2025-10-10,toamnă,,False,,10.9,istoric simulat
+2025-10-11,toamnă,,False,,11.9,istoric simulat
+2025-10-12,toamnă,,False,,14.8,istoric simulat
+2025-10-13,toamnă,,False,,9.5,istoric simulat
+2025-10-14,toamnă,,False,,8.7,istoric simulat
+2025-10-15,toamnă,,False,,10.4,istoric simulat
+2025-10-16,toamnă,,False,,7.2,istoric simulat
+2025-10-17,toamnă,,False,,11.0,istoric simulat
+2025-10-18,toamnă,,False,,11.4,istoric simulat
+2025-10-19,toamnă,,False,,12.5,istoric simulat
+2025-10-20,toamnă,,False,,10.5,istoric simulat
+2025-10-21,toamnă,,False,,11.7,istoric simulat
+2025-10-22,toamnă,,False,,13.0,istoric simulat
+2025-10-23,toamnă,,False,,12.2,istoric simulat
+2025-10-24,toamnă,,False,,11.6,istoric simulat
+2025-10-25,toamnă,,False,,11.2,istoric simulat
+2025-10-26,toamnă,,False,,8.6,istoric simulat
+2025-10-27,toamnă,,False,,8.1,istoric simulat
+2025-10-28,toamnă,,False,,7.7,istoric simulat
+2025-10-29,toamnă,,False,,8.4,istoric simulat
+2025-10-30,toamnă,,False,,10.1,istoric simulat
+2025-10-31,toamnă,,False,,7.1,istoric simulat
+2025-11-01,toamnă,,False,,6.8,istoric simulat
+2025-11-02,toamnă,,False,,9.8,istoric simulat
+2025-11-03,toamnă,,False,,7.4,istoric simulat
+2025-11-04,toamnă,,False,,5.4,istoric simulat
+2025-11-05,toamnă,,False,,6.1,istoric simulat
+2025-11-06,toamnă,,False,,7.8,istoric simulat
+2025-11-07,toamnă,,False,,7.2,istoric simulat
+2025-11-08,toamnă,,False,,9.4,istoric simulat
+2025-11-09,toamnă,,False,Black Friday,9.9,istoric simulat
+2025-11-10,toamnă,,False,Black Friday,10.2,istoric simulat
+2025-11-11,toamnă,,False,Black Friday,9.8,istoric simulat
+2025-11-12,toamnă,,False,Black Friday,13.0,istoric simulat
+2025-11-13,toamnă,,False,Black Friday,10.1,istoric simulat
+2025-11-14,toamnă,,False,Black Friday,4.5,istoric simulat
+2025-11-15,toamnă,Postul Crăciunului,True,Black Friday,7.7,istoric simulat
+2025-11-16,toamnă,Postul Crăciunului,True,Black Friday,5.7,istoric simulat
+2025-11-17,toamnă,Postul Crăciunului,True,,5.4,istoric simulat
+2025-11-18,toamnă,Postul Crăciunului,True,,7.6,istoric simulat
+2025-11-19,toamnă,Postul Crăciunului,True,,3.2,istoric simulat
+2025-11-20,toamnă,Postul Crăciunului,True,,0.8,istoric simulat
+2025-11-21,toamnă,Postul Crăciunului,True,,-1.6,istoric simulat
+2025-11-22,toamnă,Postul Crăciunului,True,,-1.7,istoric simulat
+2025-11-23,toamnă,Postul Crăciunului,True,,0.6,istoric simulat
+2025-11-24,toamnă,Postul Crăciunului,True,,2.4,istoric simulat
+2025-11-25,toamnă,Postul Crăciunului,True,,3.0,istoric simulat
+2025-11-26,toamnă,Postul Crăciunului,True,,0.1,istoric simulat
+2025-11-27,toamnă,Postul Crăciunului,True,,-3.8,istoric simulat
+2025-11-28,toamnă,Postul Crăciunului,True,,-1.8,istoric simulat
+2025-11-29,toamnă,Postul Crăciunului,True,,-1.6,istoric simulat
+2025-11-30,toamnă,Postul Crăciunului,True,,0.4,istoric simulat
+2025-12-01,iarnă,Postul Crăciunului,True,,2.3,istoric simulat
+2025-12-02,iarnă,Postul Crăciunului,True,,2.4,istoric simulat
+2025-12-03,iarnă,Postul Crăciunului,True,,3.7,istoric simulat
+2025-12-04,iarnă,Postul Crăciunului,True,,3.5,istoric simulat
+2025-12-05,iarnă,Postul Crăciunului,True,,3.9,istoric simulat
+2025-12-06,iarnă,Postul Crăciunului,True,,1.7,istoric simulat
+2025-12-07,iarnă,Postul Crăciunului,True,,1.2,istoric simulat
+2025-12-08,iarnă,Postul Crăciunului,True,,1.6,istoric simulat
+2025-12-09,iarnă,Postul Crăciunului,True,,3.0,istoric simulat
+2025-12-10,iarnă,Postul Crăciunului,True,Crăciun,1.6,istoric simulat
+2025-12-11,iarnă,Postul Crăciunului,True,Crăciun,2.4,istoric simulat
+2025-12-12,iarnă,Postul Crăciunului,True,Crăciun,1.3,istoric simulat
+2025-12-13,iarnă,Postul Crăciunului,True,Crăciun,0.8,istoric simulat
+2025-12-14,iarnă,Postul Crăciunului,True,Crăciun,2.4,istoric simulat
+2025-12-15,iarnă,Postul Crăciunului,True,Crăciun,-2.2,istoric simulat
+2025-12-16,iarnă,Postul Crăciunului,True,Crăciun,-4.1,istoric simulat
+2025-12-17,iarnă,Postul Crăciunului,True,Crăciun,-5.8,istoric simulat
+2025-12-18,iarnă,Postul Crăciunului,True,Crăciun,-8.7,istoric simulat
+2025-12-19,iarnă,Postul Crăciunului,True,Crăciun,-7.5,istoric simulat
+2025-12-20,iarnă,Postul Crăciunului,True,Crăciun,-3.8,istoric simulat
+2025-12-21,iarnă,Postul Crăciunului,True,Crăciun,-3.3,istoric simulat
+2025-12-22,iarnă,Postul Crăciunului,True,Crăciun,-2.0,istoric simulat
+2025-12-23,iarnă,Postul Crăciunului,True,Crăciun,0.7,istoric simulat
+2025-12-24,iarnă,Postul Crăciunului,True,Crăciun,3.0,istoric simulat
+2025-12-25,iarnă,,False,,1.8,istoric simulat
+2025-12-26,iarnă,,False,,3.8,istoric simulat
+2025-12-27,iarnă,,False,,2.7,istoric simulat
+2025-12-28,iarnă,,False,,0.0,istoric simulat
+2025-12-29,iarnă,,False,,-1.4,istoric simulat
+2025-12-30,iarnă,,False,,-4.1,istoric simulat
+2025-12-31,iarnă,,False,,-4.9,istoric simulat
+2026-01-01,iarnă,,False,,-4.4,istoric simulat
+2026-01-02,iarnă,,False,,-1.7,istoric simulat
+2026-01-03,iarnă,,False,,2.0,istoric simulat
+2026-01-04,iarnă,,False,,-1.7,istoric simulat
+2026-01-05,iarnă,,False,,-0.7,istoric simulat
+2026-01-06,iarnă,,False,,-2.8,istoric simulat
+2026-01-07,iarnă,,False,,-1.3,istoric simulat
+2026-01-08,iarnă,,False,,-1.5,istoric simulat
+2026-01-09,iarnă,,False,,-5.0,istoric simulat
+2026-01-10,iarnă,,False,,-2.0,istoric simulat
+2026-01-11,iarnă,,False,,-2.9,istoric simulat
+2026-01-12,iarnă,,False,,-3.4,istoric simulat
+2026-01-13,iarnă,,False,,-4.8,istoric simulat
+2026-01-14,iarnă,,False,,-5.0,istoric simulat
+2026-01-15,iarnă,,False,,-2.9,istoric simulat
+2026-01-16,iarnă,,False,,-2.7,istoric simulat
+2026-01-17,iarnă,,False,,-1.5,istoric simulat
+2026-01-18,iarnă,,False,,-0.6,istoric simulat
+2026-01-19,iarnă,,False,,1.9,istoric simulat
+2026-01-20,iarnă,,False,,0.4,istoric simulat
+2026-01-21,iarnă,,False,,-2.9,istoric simulat
+2026-01-22,iarnă,,False,,-0.2,istoric simulat
+2026-01-23,iarnă,,False,,-1.0,istoric simulat
+2026-01-24,iarnă,,False,,1.3,istoric simulat
+2026-01-25,iarnă,,False,,1.5,istoric simulat
+2026-01-26,iarnă,,False,,0.6,istoric simulat
+2026-01-27,iarnă,,False,,0.9,istoric simulat
+2026-01-28,iarnă,,False,,4.4,istoric simulat
+2026-01-29,iarnă,,False,,7.1,istoric simulat
+2026-01-30,iarnă,,False,,5.0,istoric simulat
+2026-01-31,iarnă,,False,,3.7,istoric simulat
+2026-02-01,iarnă,,False,,4.7,istoric simulat
+2026-02-02,iarnă,,False,,1.5,istoric simulat
+2026-02-03,iarnă,,False,,1.7,istoric simulat
+2026-02-04,iarnă,,False,,1.1,istoric simulat
+2026-02-05,iarnă,,False,,1.4,istoric simulat
+2026-02-06,iarnă,,False,,-0.6,istoric simulat
+2026-02-07,iarnă,,False,,-3.5,istoric simulat
+2026-02-08,iarnă,,False,,-6.5,istoric simulat
+2026-02-09,iarnă,,False,,-6.7,istoric simulat
+2026-02-10,iarnă,,False,,-5.4,istoric simulat
+2026-02-11,iarnă,,False,,-4.2,istoric simulat
+2026-02-12,iarnă,,False,,1.1,istoric simulat
+2026-02-13,iarnă,,False,,3.3,istoric simulat
+2026-02-14,iarnă,,False,,0.6,istoric simulat
+2026-02-15,iarnă,,False,,1.5,istoric simulat
+2026-02-16,iarnă,,False,,0.6,istoric simulat
+2026-02-17,iarnă,,False,,0.2,istoric simulat
+2026-02-18,iarnă,,False,,0.9,istoric simulat
+2026-02-19,iarnă,,False,,2.4,istoric simulat
+2026-02-20,iarnă,,False,,1.5,istoric simulat
+2026-02-21,iarnă,,False,,3.7,istoric simulat
+2026-02-22,iarnă,,False,,0.9,istoric simulat
+2026-02-23,iarnă,Postul Paștelui,True,,1.3,istoric simulat
+2026-02-24,iarnă,Postul Paștelui,True,,6.7,istoric simulat
+2026-02-25,iarnă,Postul Paștelui,True,,5.9,istoric simulat
+2026-02-26,iarnă,Postul Paștelui,True,,7.7,istoric simulat
+2026-02-27,iarnă,Postul Paștelui,True,,6.4,istoric simulat
+2026-02-28,iarnă,Postul Paștelui,True,,6.5,istoric simulat
+2026-03-01,primăvară,Postul Paștelui,True,,5.3,istoric simulat
+2026-03-02,primăvară,Postul Paștelui,True,,4.3,istoric simulat
+2026-03-03,primăvară,Postul Paștelui,True,,2.4,istoric simulat
+2026-03-04,primăvară,Postul Paștelui,True,,3.6,istoric simulat
+2026-03-05,primăvară,Postul Paștelui,True,,1.9,istoric simulat
+2026-03-06,primăvară,Postul Paștelui,True,,3.8,istoric simulat
+2026-03-07,primăvară,Postul Paștelui,True,,6.0,istoric simulat
+2026-03-08,primăvară,Postul Paștelui,True,,6.1,istoric simulat
+2026-03-09,primăvară,Postul Paștelui,True,,5.0,istoric simulat
+2026-03-10,primăvară,Postul Paștelui,True,,5.7,istoric simulat
+2026-03-11,primăvară,Postul Paștelui,True,,4.8,istoric simulat
+2026-03-12,primăvară,Postul Paștelui,True,,6.6,istoric simulat
+2026-03-13,primăvară,Postul Paștelui,True,,2.5,istoric simulat
+2026-03-14,primăvară,Postul Paștelui,True,,2.6,istoric simulat
+2026-03-15,primăvară,Postul Paștelui,True,,-0.6,istoric simulat
+2026-03-16,primăvară,Postul Paștelui,True,,-1.7,istoric simulat
+2026-03-17,primăvară,Postul Paștelui,True,,3.2,istoric simulat
+2026-03-18,primăvară,Postul Paștelui,True,,5.8,istoric simulat
+2026-03-19,primăvară,Postul Paștelui,True,,4.4,istoric simulat
+2026-03-20,primăvară,Postul Paștelui,True,,2.0,istoric simulat
+2026-03-21,primăvară,Postul Paștelui,True,,-2.6,istoric simulat
+2026-03-22,primăvară,Postul Paștelui,True,,-0.9,istoric simulat
+2026-03-23,primăvară,Postul Paștelui,True,,6.2,istoric simulat
+2026-03-24,primăvară,Postul Paștelui,True,,7.3,istoric simulat
+2026-03-25,primăvară,Postul Paștelui,True,,6.2,istoric simulat
+2026-03-26,primăvară,Postul Paștelui,True,,7.5,istoric simulat
+2026-03-27,primăvară,Postul Paștelui,True,,4.4,istoric simulat
+2026-03-28,primăvară,Postul Paștelui,True,,4.8,istoric simulat
+2026-03-29,primăvară,Postul Paștelui,True,,6.0,istoric simulat
+2026-03-30,primăvară,Postul Paștelui,True,,6.5,istoric simulat
+2026-03-31,primăvară,Postul Paștelui,True,,8.6,istoric simulat
+2026-04-01,primăvară,Postul Paștelui,True,,9.3,istoric simulat
+2026-04-02,primăvară,Postul Paștelui,True,Paște,10.5,istoric simulat
+2026-04-03,primăvară,Postul Paștelui,True,Paște,8.7,istoric simulat
+2026-04-04,primăvară,Postul Paștelui,True,Paște,10.6,istoric simulat
+2026-04-05,primăvară,Postul Paștelui,True,Paște,13.5,istoric simulat
+2026-04-06,primăvară,Postul Paștelui,True,Paște,10.4,istoric simulat
+2026-04-07,primăvară,Postul Paștelui,True,Paște,8.5,istoric simulat
+2026-04-08,primăvară,Postul Paștelui,True,Paște,11.6,istoric simulat
+2026-04-09,primăvară,Postul Paștelui,True,Paște,10.8,istoric simulat
+2026-04-10,primăvară,Postul Paștelui,True,Paște,13.5,istoric simulat
+2026-04-11,primăvară,Postul Paștelui,True,Paște,11.8,istoric simulat
+2026-04-12,primăvară,,False,,14.4,istoric simulat
+2026-04-13,primăvară,,False,,13.7,istoric simulat
+2026-04-14,primăvară,,False,,13.5,istoric simulat
+2026-04-15,primăvară,,False,,16.0,istoric simulat
+2026-04-16,primăvară,,False,,14.0,istoric simulat
+2026-04-17,primăvară,,False,,11.5,istoric simulat
+2026-04-18,primăvară,,False,,10.8,istoric simulat
+2026-04-19,primăvară,,False,,12.1,istoric simulat
+2026-04-20,primăvară,,False,,9.1,istoric simulat
+2026-04-21,primăvară,,False,,11.5,istoric simulat
+2026-04-22,primăvară,,False,,10.8,istoric simulat
+2026-04-23,primăvară,,False,,13.8,istoric simulat
+2026-04-24,primăvară,,False,,8.9,istoric simulat
+2026-04-25,primăvară,,False,,8.7,istoric simulat
+2026-04-26,primăvară,,False,,6.8,istoric simulat
+2026-04-27,primăvară,,False,,7.3,istoric simulat
+2026-04-28,primăvară,,False,,9.9,istoric simulat
+2026-04-29,primăvară,,False,,10.8,istoric simulat
+2026-04-30,primăvară,,False,,11.4,istoric simulat
+2026-05-01,primăvară,,False,,12.1,istoric simulat
+2026-05-02,primăvară,,False,,13.4,istoric simulat
+2026-05-03,primăvară,,False,,11.9,istoric simulat
+2026-05-04,primăvară,,False,,14.3,istoric simulat
+2026-05-05,primăvară,,False,,16.0,istoric simulat
+2026-05-06,primăvară,,False,,16.7,istoric simulat
+2026-05-07,primăvară,,False,,17.6,istoric simulat
+2026-05-08,primăvară,,False,,17.7,istoric simulat
+2026-05-09,primăvară,,False,,21.3,istoric simulat
+2026-05-10,primăvară,,False,,19.7,istoric simulat
+2026-05-11,primăvară,,False,,18.2,istoric simulat
+2026-05-12,primăvară,,False,,16.2,istoric simulat
+2026-05-13,primăvară,,False,,14.4,istoric simulat
+2026-05-14,primăvară,,False,,12.7,istoric simulat
+2026-05-15,primăvară,,False,,12.3,istoric simulat
+2026-05-16,primăvară,,False,,13.8,istoric simulat
+2026-05-17,primăvară,,False,,15.6,istoric simulat
+2026-05-18,primăvară,,False,,16.4,istoric simulat
+2026-05-19,primăvară,,False,,15.3,istoric simulat
+2026-05-20,primăvară,,False,,18.0,istoric simulat
+2026-05-21,primăvară,,False,,19.6,istoric simulat
+2026-05-22,primăvară,,False,,18.9,istoric simulat
+2026-05-23,primăvară,,False,,17.6,istoric simulat
+2026-05-24,primăvară,,False,,19.0,istoric simulat
+2026-05-25,primăvară,,False,,19.4,istoric simulat
+2026-05-26,primăvară,,False,,16.4,istoric simulat
+2026-05-27,primăvară,,False,,17.2,istoric simulat
+2026-05-28,primăvară,,False,,18.4,istoric simulat
+2026-05-29,primăvară,,False,,16.9,istoric simulat
+2026-05-30,primăvară,,False,,18.2,istoric simulat
+2026-05-31,primăvară,,False,,15.8,istoric simulat
+2026-06-01,vară,,False,,19.7,istoric simulat
+2026-06-02,vară,,False,,22.3,istoric simulat
+2026-06-03,vară,,False,,21.2,istoric simulat
+2026-06-04,vară,,False,,21.7,istoric simulat
+2026-06-05,vară,,False,,16.5,istoric simulat
+2026-06-06,vară,,False,,15.5,istoric simulat
+2026-06-07,vară,,False,,16.5,istoric simulat
+2026-06-08,vară,,False,,15.7,istoric simulat
+2026-06-09,vară,,False,,18.7,istoric simulat
+2026-06-10,vară,,False,,23.4,istoric simulat
+2026-06-11,vară,,False,,20.4,istoric simulat
+2026-06-12,vară,,False,,19.0,istoric simulat
+2026-06-13,vară,,False,,20.2,istoric simulat
+2026-06-14,vară,,False,,23.8,istoric simulat
+2026-06-15,vară,,False,,20.7,istoric simulat
+2026-06-16,vară,,False,,21.5,istoric simulat
+2026-06-17,vară,,False,,25.3,istoric simulat
+2026-06-18,vară,,False,,21.0,istoric simulat
+2026-06-19,vară,,False,,18.7,istoric simulat
+2026-06-20,vară,,False,,18.9,istoric simulat
+2026-06-21,vară,,False,,18.8,istoric simulat
+2026-06-22,vară,,False,,21.5,istoric simulat
+2026-06-23,vară,,False,,22.2,istoric simulat
+2026-06-24,vară,,False,,18.7,istoric simulat
+2026-06-25,vară,,False,,20.9,istoric simulat
+2026-06-26,vară,,False,,20.2,istoric simulat
+2026-06-27,vară,,False,,23.5,istoric simulat
+2026-06-28,vară,,False,,21.9,istoric simulat
+2026-06-29,vară,,False,,20.9,istoric simulat
+2026-06-30,vară,,False,,22.5,istoric simulat
+2026-07-01,vară,,False,,24.1,istoric simulat
+2026-07-02,vară,,False,,24.6,istoric simulat
+2026-07-03,vară,,False,,20.7,istoric simulat
+2026-07-04,vară,,False,,22.4,istoric simulat
+2026-07-05,vară,,False,,20.5,istoric simulat
+2026-07-06,vară,,False,,21.7,istoric simulat
+2026-07-07,vară,,False,,19.2,istoric simulat
+2026-07-08,vară,,False,,21.2,istoric simulat
+2026-07-09,vară,,False,,20.2,istoric simulat
+2026-07-10,vară,,False,,18.4,istoric simulat
+2026-07-11,vară,,False,,21.2,istoric simulat
+2026-07-12,vară,,False,,22.3,istoric simulat
+2026-07-13,vară,,False,,21.3,istoric simulat
+2026-07-14,vară,,False,,24.7,istoric simulat
+2026-07-15,vară,,False,,23.3,istoric simulat
+2026-07-16,vară,,False,,23.3,istoric simulat
+2026-07-17,vară,,False,,23.7,istoric simulat
+2026-07-18,vară,,False,,22.3,istoric simulat
+2026-07-19,vară,,False,,23.4,istoric simulat
+2026-07-20,vară,,False,,22.2,istoric simulat
+2026-07-21,vară,,False,,21.6,istoric simulat
+2026-07-22,vară,,False,,24.7,istoric simulat
+2026-07-23,vară,,False,,22.1,istoric simulat
+2026-07-24,vară,,False,,17.5,istoric simulat
+2026-07-25,vară,,False,,22.3,istoric simulat
+2026-07-26,vară,,False,,27.5,istoric simulat
+2026-07-27,vară,,False,,25.2,istoric simulat
+2026-07-28,vară,,False,,20.6,istoric simulat
+2026-07-29,vară,,False,,20.6,istoric simulat
+2026-07-30,vară,,False,,20.6,istoric simulat
+2026-07-31,vară,,False,,20.7,istoric simulat
+2026-08-01,vară,Postul Adormirii Maicii Domnului,True,,19.0,istoric simulat
+2026-08-02,vară,Postul Adormirii Maicii Domnului,True,,21.2,istoric simulat
+2026-08-03,vară,Postul Adormirii Maicii Domnului,True,,22.5,istoric simulat
+2026-08-04,vară,Postul Adormirii Maicii Domnului,True,,19.4,istoric simulat
+2026-08-05,vară,Postul Adormirii Maicii Domnului,True,,21.6,istoric simulat
+2026-08-06,vară,Postul Adormirii Maicii Domnului,True,,25.8,istoric simulat
+2026-08-07,vară,Postul Adormirii Maicii Domnului,True,,25.0,istoric simulat
+2026-08-08,vară,Postul Adormirii Maicii Domnului,True,,23.4,istoric simulat
+2026-08-09,vară,Postul Adormirii Maicii Domnului,True,,22.6,istoric simulat
+2026-08-10,vară,Postul Adormirii Maicii Domnului,True,,23.5,istoric simulat
+2026-08-11,vară,Postul Adormirii Maicii Domnului,True,,19.5,istoric simulat
+2026-08-12,vară,Postul Adormirii Maicii Domnului,True,,20.4,istoric simulat
+2026-08-13,vară,Postul Adormirii Maicii Domnului,True,,19.9,istoric simulat
+2026-08-14,vară,Postul Adormirii Maicii Domnului,True,,24.0,istoric simulat
+2026-08-15,vară,,False,,22.8,istoric simulat
+2026-08-16,vară,,False,,25.6,istoric simulat
+2026-08-17,vară,,False,,22.0,istoric simulat
+2026-08-18,vară,,False,,22.8,istoric simulat
+2026-08-19,vară,,False,,22.8,istoric simulat
+2026-08-20,vară,,False,,20.4,istoric simulat
+2026-08-21,vară,,False,,20.7,istoric simulat
+2026-08-22,vară,,False,,23.0,istoric simulat
+2026-08-23,vară,,False,,21.5,istoric simulat
+2026-08-24,vară,,False,,17.7,istoric simulat
+2026-08-25,vară,,False,,18.3,istoric simulat
+2026-08-26,vară,,False,,16.9,istoric simulat
+2026-08-27,vară,,False,,17.0,istoric simulat
+2026-08-28,vară,,False,,17.6,istoric simulat
+2026-08-29,vară,,False,,14.7,istoric simulat
+2026-08-30,vară,,False,,12.8,istoric simulat
+2026-08-31,vară,,False,,15.6,istoric simulat
+2026-09-01,toamnă,,False,,15.5,istoric simulat
+2026-09-02,toamnă,,False,,11.4,istoric simulat
+2026-09-03,toamnă,,False,,15.1,istoric simulat
+2026-09-04,toamnă,,False,,16.6,istoric simulat
+2026-09-05,toamnă,,False,,15.6,istoric simulat
+2026-09-06,toamnă,,False,,13.7,istoric simulat
+2026-09-07,toamnă,,False,,16.6,istoric simulat
+2026-09-08,toamnă,,False,,17.6,istoric simulat
+2026-09-09,toamnă,,False,,22.4,istoric simulat
+2026-09-10,toamnă,,False,,21.7,istoric simulat
+2026-09-11,toamnă,,False,,21.1,istoric simulat
+2026-09-12,toamnă,,False,,19.5,istoric simulat
+2026-09-13,toamnă,,False,,20.4,istoric simulat
+2026-09-14,toamnă,,False,,20.5,istoric simulat
+2026-09-15,toamnă,,False,,21.8,istoric simulat
+2026-09-16,toamnă,,False,,19.1,istoric simulat
+2026-09-17,toamnă,,False,,17.3,istoric simulat
+2026-09-18,toamnă,,False,,15.9,istoric simulat
+2026-09-19,toamnă,,False,,17.4,istoric simulat
+2026-09-20,toamnă,,False,,19.8,istoric simulat
+2026-09-21,toamnă,,False,,17.6,istoric simulat
+2026-09-22,toamnă,,False,,16.0,istoric simulat
+2026-09-23,toamnă,,False,,16.3,istoric simulat
+2026-09-24,toamnă,,False,,15.3,istoric simulat
+2026-09-25,toamnă,,False,,17.0,istoric simulat
+2026-09-26,toamnă,,False,,11.7,istoric simulat
+2026-09-27,toamnă,,False,,10.8,istoric simulat
+2026-09-28,toamnă,,False,,10.1,istoric simulat
+2026-09-29,toamnă,,False,,6.6,istoric simulat
+2026-09-30,toamnă,,False,,6.7,istoric simulat
+2026-10-01,toamnă,,False,,6.9,istoric simulat
+2026-10-02,toamnă,,False,,8.3,istoric simulat
+2026-10-03,toamnă,,False,,11.9,istoric simulat
+2026-10-04,toamnă,,False,,11.7,istoric simulat
+2026-10-05,toamnă,,False,,9.9,istoric simulat
+2026-10-06,toamnă,,False,,10.5,istoric simulat
+2026-10-07,toamnă,,False,,13.1,istoric simulat
+2026-10-08,toamnă,,False,,10.8,istoric simulat
+2026-10-09,toamnă,,False,,9.2,istoric simulat
+2026-10-10,toamnă,,False,,11.0,istoric simulat
+2026-10-11,toamnă,,False,,10.6,istoric simulat
+2026-10-12,toamnă,,False,,12.1,istoric simulat
+2026-10-13,toamnă,,False,,11.7,istoric simulat
+2026-10-14,toamnă,,False,,12.8,istoric simulat
+2026-10-15,toamnă,,False,,10.0,istoric simulat
+2026-10-16,toamnă,,False,,10.0,istoric simulat
+2026-10-17,toamnă,,False,,9.6,istoric simulat
+2026-10-18,toamnă,,False,,7.2,istoric simulat
+2026-10-19,toamnă,,False,,4.8,istoric simulat
+2026-10-20,toamnă,,False,,7.6,istoric simulat
+2026-10-21,toamnă,,False,,7.4,istoric simulat
+2026-10-22,toamnă,,False,,5.8,istoric simulat
+2026-10-23,toamnă,,False,,6.5,istoric simulat
+2026-10-24,toamnă,,False,,9.4,istoric simulat
+2026-10-25,toamnă,,False,,4.5,istoric simulat
+2026-10-26,toamnă,,False,,2.6,istoric simulat
+2026-10-27,toamnă,,False,,2.4,istoric simulat
+2026-10-28,toamnă,,False,,6.9,istoric simulat
+2026-10-29,toamnă,,False,,7.7,istoric simulat
+2026-10-30,toamnă,,False,,9.1,istoric simulat
+2026-10-31,toamnă,,False,,6.3,istoric simulat
+2026-11-01,toamnă,,False,,7.5,normală sezonieră
+2026-11-02,toamnă,,False,,7.3,normală sezonieră
+2026-11-03,toamnă,,False,,7.1,normală sezonieră
+2026-11-04,toamnă,,False,,6.9,normală sezonieră
+2026-11-05,toamnă,,False,,6.7,normală sezonieră
+2026-11-06,toamnă,,False,,6.5,normală sezonieră
+2026-11-07,toamnă,,False,,6.3,normală sezonieră
+2026-11-08,toamnă,,False,Black Friday,6.1,normală sezonieră
+2026-11-09,toamnă,,False,Black Friday,5.9,normală sezonieră
+2026-11-10,toamnă,,False,Black Friday,5.7,normală sezonieră
+2026-11-11,toamnă,,False,Black Friday,5.6,normală sezonieră
+2026-11-12,toamnă,,False,Black Friday,5.4,normală sezonieră
+2026-11-13,toamnă,,False,Black Friday,5.2,normală sezonieră
+2026-11-14,toamnă,,False,Black Friday,5.0,normală sezonieră
+2026-11-15,toamnă,Postul Crăciunului,True,Black Friday,4.8,normală sezonieră
+2026-11-16,toamnă,Postul Crăciunului,True,,4.7,normală sezonieră
+2026-11-17,toamnă,Postul Crăciunului,True,,4.5,normală sezonieră
+2026-11-18,toamnă,Postul Crăciunului,True,,4.3,normală sezonieră
+2026-11-19,toamnă,Postul Crăciunului,True,,4.1,normală sezonieră
+2026-11-20,toamnă,Postul Crăciunului,True,,4.0,normală sezonieră
+2026-11-21,toamnă,Postul Crăciunului,True,,3.8,normală sezonieră
+2026-11-22,toamnă,Postul Crăciunului,True,,3.6,normală sezonieră
+2026-11-23,toamnă,Postul Crăciunului,True,,3.5,normală sezonieră
+2026-11-24,toamnă,Postul Crăciunului,True,,3.3,normală sezonieră
+2026-11-25,toamnă,Postul Crăciunului,True,,3.2,normală sezonieră
+2026-11-26,toamnă,Postul Crăciunului,True,,3.0,normală sezonieră
+2026-11-27,toamnă,Postul Crăciunului,True,,2.9,normală sezonieră
+2026-11-28,toamnă,Postul Crăciunului,True,,2.7,normală sezonieră
+2026-11-29,toamnă,Postul Crăciunului,True,,2.6,normală sezonieră
+2026-11-30,toamnă,Postul Crăciunului,True,,2.4,normală sezonieră
+2026-12-01,iarnă,Postul Crăciunului,True,,2.3,normală sezonieră
+2026-12-02,iarnă,Postul Crăciunului,True,,2.1,normală sezonieră
+2026-12-03,iarnă,Postul Crăciunului,True,,2.0,normală sezonieră
+2026-12-04,iarnă,Postul Crăciunului,True,,1.9,normală sezonieră
+2026-12-05,iarnă,Postul Crăciunului,True,,1.7,normală sezonieră
+2026-12-06,iarnă,Postul Crăciunului,True,,1.6,normală sezonieră
+2026-12-07,iarnă,Postul Crăciunului,True,,1.5,normală sezonieră
+2026-12-08,iarnă,Postul Crăciunului,True,,1.3,normală sezonieră
+2026-12-09,iarnă,Postul Crăciunului,True,,1.2,normală sezonieră
+2026-12-10,iarnă,Postul Crăciunului,True,Crăciun,1.1,normală sezonieră
+2026-12-11,iarnă,Postul Crăciunului,True,Crăciun,1.0,normală sezonieră
+2026-12-12,iarnă,Postul Crăciunului,True,Crăciun,0.9,normală sezonieră
+2026-12-13,iarnă,Postul Crăciunului,True,Crăciun,0.8,normală sezonieră
+2026-12-14,iarnă,Postul Crăciunului,True,Crăciun,0.7,normală sezonieră
+2026-12-15,iarnă,Postul Crăciunului,True,Crăciun,0.6,normală sezonieră
+2026-12-16,iarnă,Postul Crăciunului,True,Crăciun,0.5,normală sezonieră
+2026-12-17,iarnă,Postul Crăciunului,True,Crăciun,0.4,normală sezonieră
+2026-12-18,iarnă,Postul Crăciunului,True,Crăciun,0.3,normală sezonieră
+2026-12-19,iarnă,Postul Crăciunului,True,Crăciun,0.2,normală sezonieră
+2026-12-20,iarnă,Postul Crăciunului,True,Crăciun,0.1,normală sezonieră
+2026-12-21,iarnă,Postul Crăciunului,True,Crăciun,0.0,normală sezonieră
+2026-12-22,iarnă,Postul Crăciunului,True,Crăciun,-0.1,normală sezonieră
+2026-12-23,iarnă,Postul Crăciunului,True,Crăciun,-0.2,normală sezonieră
+2026-12-24,iarnă,Postul Crăciunului,True,Crăciun,-0.2,normală sezonieră
+2026-12-25,iarnă,,False,,-0.3,normală sezonieră
+2026-12-26,iarnă,,False,,-0.4,normală sezonieră
+2026-12-27,iarnă,,False,,-0.4,normală sezonieră
+2026-12-28,iarnă,,False,,-0.5,normală sezonieră
+2026-12-29,iarnă,,False,,-0.6,normală sezonieră
+2026-12-30,iarnă,,False,,-0.6,normală sezonieră
+2026-12-31,iarnă,,False,,-0.7,normală sezonieră
+2027-01-01,iarnă,,False,,-0.7,normală sezonieră
+2027-01-02,iarnă,,False,,-0.8,normală sezonieră
+2027-01-03,iarnă,,False,,-0.8,normală sezonieră
+2027-01-04,iarnă,,False,,-0.8,normală sezonieră
+2027-01-05,iarnă,,False,,-0.9,normală sezonieră
+2027-01-06,iarnă,,False,,-0.9,normală sezonieră
+2027-01-07,iarnă,,False,,-0.9,normală sezonieră
+2027-01-08,iarnă,,False,,-0.9,normală sezonieră
+2027-01-09,iarnă,,False,,-1.0,normală sezonieră
+2027-01-10,iarnă,,False,,-1.0,normală sezonieră
+2027-01-11,iarnă,,False,,-1.0,normală sezonieră
+2027-01-12,iarnă,,False,,-1.0,normală sezonieră
+2027-01-13,iarnă,,False,,-1.0,normală sezonieră
+2027-01-14,iarnă,,False,,-1.0,normală sezonieră
+2027-01-15,iarnă,,False,,-1.0,normală sezonieră
+2027-01-16,iarnă,,False,,-1.0,normală sezonieră
+2027-01-17,iarnă,,False,,-1.0,normală sezonieră
+2027-01-18,iarnă,,False,,-1.0,normală sezonieră
+2027-01-19,iarnă,,False,,-0.9,normală sezonieră
+2027-01-20,iarnă,,False,,-0.9,normală sezonieră
+2027-01-21,iarnă,,False,,-0.9,normală sezonieră
+2027-01-22,iarnă,,False,,-0.9,normală sezonieră
+2027-01-23,iarnă,,False,,-0.8,normală sezonieră
+2027-01-24,iarnă,,False,,-0.8,normală sezonieră
+2027-01-25,iarnă,,False,,-0.8,normală sezonieră
+2027-01-26,iarnă,,False,,-0.7,normală sezonieră
+2027-01-27,iarnă,,False,,-0.7,normală sezonieră
+2027-01-28,iarnă,,False,,-0.6,normală sezonieră
+2027-01-29,iarnă,,False,,-0.6,normală sezonieră
+2027-01-30,iarnă,,False,,-0.5,normală sezonieră
+2027-01-31,iarnă,,False,,-0.5,normală sezonieră
+2027-02-01,iarnă,,False,,-0.4,normală sezonieră
+2027-02-02,iarnă,,False,,-0.3,normală sezonieră
+2027-02-03,iarnă,,False,,-0.3,normală sezonieră
+2027-02-04,iarnă,,False,,-0.2,normală sezonieră
+2027-02-05,iarnă,,False,,-0.1,normală sezonieră
+2027-02-06,iarnă,,False,,-0.0,normală sezonieră
+2027-02-07,iarnă,,False,,0.0,normală sezonieră
+2027-02-08,iarnă,,False,,0.1,normală sezonieră
+2027-02-09,iarnă,,False,,0.2,normală sezonieră
+2027-02-10,iarnă,,False,,0.3,normală sezonieră
+2027-02-11,iarnă,,False,,0.4,normală sezonieră
+2027-02-12,iarnă,,False,,0.5,normală sezonieră
+2027-02-13,iarnă,,False,,0.6,normală sezonieră
+2027-02-14,iarnă,,False,,0.7,normală sezonieră
+2027-02-15,iarnă,,False,,0.8,normală sezonieră
+2027-02-16,iarnă,,False,,0.9,normală sezonieră
+2027-02-17,iarnă,,False,,1.0,normală sezonieră
+2027-02-18,iarnă,,False,,1.1,normală sezonieră
+2027-02-19,iarnă,,False,,1.3,normală sezonieră
+2027-02-20,iarnă,,False,,1.4,normală sezonieră
+2027-02-21,iarnă,,False,,1.5,normală sezonieră
+2027-02-22,iarnă,,False,,1.6,normală sezonieră
+2027-02-23,iarnă,,False,,1.8,normală sezonieră
+2027-02-24,iarnă,,False,,1.9,normală sezonieră
+2027-02-25,iarnă,,False,,2.0,normală sezonieră
+2027-02-26,iarnă,,False,,2.2,normală sezonieră
+2027-02-27,iarnă,,False,,2.3,normală sezonieră
+2027-02-28,iarnă,,False,,2.5,normală sezonieră
+2027-03-01,primăvară,,False,,2.6,normală sezonieră
+2027-03-02,primăvară,,False,,2.8,normală sezonieră
+2027-03-03,primăvară,,False,,2.9,normală sezonieră
+2027-03-04,primăvară,,False,,3.1,normală sezonieră
+2027-03-05,primăvară,,False,,3.2,normală sezonieră
+2027-03-06,primăvară,,False,,3.4,normală sezonieră
+2027-03-07,primăvară,,False,,3.5,normală sezonieră
+2027-03-08,primăvară,,False,,3.7,normală sezonieră
+2027-03-09,primăvară,,False,,3.9,normală sezonieră
+2027-03-10,primăvară,,False,,4.0,normală sezonieră
+2027-03-11,primăvară,,False,,4.2,normală sezonieră
+2027-03-12,primăvară,,False,,4.4,normală sezonieră
+2027-03-13,primăvară,,False,,4.5,normală sezonieră
+2027-03-14,primăvară,,False,,4.7,normală sezonieră
+2027-03-15,primăvară,Postul Paștelui,True,,4.9,normală sezonieră
+2027-03-16,primăvară,Postul Paștelui,True,,5.1,normală sezonieră
+2027-03-17,primăvară,Postul Paștelui,True,,5.3,normală sezonieră
+2027-03-18,primăvară,Postul Paștelui,True,,5.4,normală sezonieră
+2027-03-19,primăvară,Postul Paștelui,True,,5.6,normală sezonieră
+2027-03-20,primăvară,Postul Paștelui,True,,5.8,normală sezonieră
+2027-03-21,primăvară,Postul Paștelui,True,,6.0,normală sezonieră
+2027-03-22,primăvară,Postul Paștelui,True,,6.2,normală sezonieră
+2027-03-23,primăvară,Postul Paștelui,True,,6.4,normală sezonieră
+2027-03-24,primăvară,Postul Paștelui,True,,6.6,normală sezonieră
+2027-03-25,primăvară,Postul Paștelui,True,,6.8,normală sezonieră
+2027-03-26,primăvară,Postul Paștelui,True,,7.0,normală sezonieră
+2027-03-27,primăvară,Postul Paștelui,True,,7.1,normală sezonieră
+2027-03-28,primăvară,Postul Paștelui,True,,7.3,normală sezonieră
+2027-03-29,primăvară,Postul Paștelui,True,,7.5,normală sezonieră
+2027-03-30,primăvară,Postul Paștelui,True,,7.7,normală sezonieră
+2027-03-31,primăvară,Postul Paștelui,True,,7.9,normală sezonieră
+2027-04-01,primăvară,Postul Paștelui,True,,8.1,normală sezonieră
+2027-04-02,primăvară,Postul Paștelui,True,,8.3,normală sezonieră
+2027-04-03,primăvară,Postul Paștelui,True,,8.5,normală sezonieră
+2027-04-04,primăvară,Postul Paștelui,True,,8.7,normală sezonieră
+2027-04-05,primăvară,Postul Paștelui,True,,8.9,normală sezonieră
+2027-04-06,primăvară,Postul Paștelui,True,,9.1,normală sezonieră
+2027-04-07,primăvară,Postul Paștelui,True,,9.4,normală sezonieră
+2027-04-08,primăvară,Postul Paștelui,True,,9.6,normală sezonieră
+2027-04-09,primăvară,Postul Paștelui,True,,9.8,normală sezonieră
+2027-04-10,primăvară,Postul Paștelui,True,,10.0,normală sezonieră
+2027-04-11,primăvară,Postul Paștelui,True,,10.2,normală sezonieră
+2027-04-12,primăvară,Postul Paștelui,True,,10.4,normală sezonieră
+2027-04-13,primăvară,Postul Paștelui,True,,10.6,normală sezonieră
+2027-04-14,primăvară,Postul Paștelui,True,,10.8,normală sezonieră
+2027-04-15,primăvară,Postul Paștelui,True,,11.0,normală sezonieră
+2027-04-16,primăvară,Postul Paștelui,True,,11.2,normală sezonieră
+2027-04-17,primăvară,Postul Paștelui,True,,11.4,normală sezonieră
+2027-04-18,primăvară,Postul Paștelui,True,,11.6,normală sezonieră
+2027-04-19,primăvară,Postul Paștelui,True,,11.8,normală sezonieră
+2027-04-20,primăvară,Postul Paștelui,True,,12.0,normală sezonieră
+2027-04-21,primăvară,Postul Paștelui,True,,12.2,normală sezonieră
+2027-04-22,primăvară,Postul Paștelui,True,Paște,12.4,normală sezonieră
+2027-04-23,primăvară,Postul Paștelui,True,Paște,12.6,normală sezonieră
+2027-04-24,primăvară,Postul Paștelui,True,Paște,12.9,normală sezonieră
+2027-04-25,primăvară,Postul Paștelui,True,Paște,13.1,normală sezonieră
+2027-04-26,primăvară,Postul Paștelui,True,Paște,13.3,normală sezonieră
+2027-04-27,primăvară,Postul Paștelui,True,Paște,13.5,normală sezonieră
+2027-04-28,primăvară,Postul Paștelui,True,Paște,13.7,normală sezonieră
+2027-04-29,primăvară,Postul Paștelui,True,Paște,13.9,normală sezonieră
+2027-04-30,primăvară,Postul Paștelui,True,Paște,14.1,normală sezonieră
+2027-05-01,primăvară,Postul Paștelui,True,Paște,14.3,normală sezonieră
+2027-05-02,primăvară,,False,,14.5,normală sezonieră
+2027-05-03,primăvară,,False,,14.7,normală sezonieră
+2027-05-04,primăvară,,False,,14.9,normală sezonieră
+2027-05-05,primăvară,,False,,15.0,normală sezonieră
+2027-05-06,primăvară,,False,,15.2,normală sezonieră
+2027-05-07,primăvară,,False,,15.4,normală sezonieră
+2027-05-08,primăvară,,False,,15.6,normală sezonieră
+2027-05-09,primăvară,,False,,15.8,normală sezonieră
+2027-05-10,primăvară,,False,,16.0,normală sezonieră
+2027-05-11,primăvară,,False,,16.2,normală sezonieră
+2027-05-12,primăvară,,False,,16.4,normală sezonieră
+2027-05-13,primăvară,,False,,16.6,normală sezonieră
+2027-05-14,primăvară,,False,,16.7,normală sezonieră
+2027-05-15,primăvară,,False,,16.9,normală sezonieră
+2027-05-16,primăvară,,False,,17.1,normală sezonieră
+2027-05-17,primăvară,,False,,17.3,normală sezonieră
+2027-05-18,primăvară,,False,,17.5,normală sezonieră
+2027-05-19,primăvară,,False,,17.6,normală sezonieră
+2027-05-20,primăvară,,False,,17.8,normală sezonieră
+2027-05-21,primăvară,,False,,18.0,normală sezonieră
+2027-05-22,primăvară,,False,,18.1,normală sezonieră
+2027-05-23,primăvară,,False,,18.3,normală sezonieră
+2027-05-24,primăvară,,False,,18.5,normală sezonieră
+2027-05-25,primăvară,,False,,18.6,normală sezonieră
+2027-05-26,primăvară,,False,,18.8,normală sezonieră
+2027-05-27,primăvară,,False,,18.9,normală sezonieră
+2027-05-28,primăvară,,False,,19.1,normală sezonieră
+2027-05-29,primăvară,,False,,19.2,normală sezonieră
+2027-05-30,primăvară,,False,,19.4,normală sezonieră
+2027-05-31,primăvară,,False,,19.5,normală sezonieră
