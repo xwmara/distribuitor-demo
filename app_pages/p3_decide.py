@@ -9,48 +9,52 @@ import streamlit as st
 import common
 import decide
 import model
+from common import t
 
 data = common.get_data()
 fitted = common.get_model()
 bt = common.get_backtest()
 today = common.reference_date()
 
-st.title("Decide: acțiuni recomandate")
-st.caption(f"„Azi” în demo: {common.fmt_date(today)}")
+st.title(t("p3.title"))
+st.caption(t("common.today", date=common.fmt_date(today)))
 
 c1, c2 = st.columns(2)
-horizon = c1.select_slider("Orizont de planificare", options=[7, 14, 21, 28], value=14,
-                           format_func=lambda d: f"{d} zile")
-service = c2.select_slider("Nivel de serviciu", options=[0.90, 0.95, 0.98], value=0.95,
-                           format_func=lambda x: f"{x:.0%}")
+horizon = c1.select_slider(t("p3.horizon"), options=[7, 14, 21, 28], value=14,
+                           format_func=lambda d: t("p3.days_fmt", n=d))
+service = c2.select_slider(t("p3.service"), options=[0.90, 0.95, 0.98], value=0.95,
+                           format_func=lambda x: common.fmt_pct(x, 0))
 
 sigma = model.error_sigma(bt["weekly_product"], "product_id")
 stock = model.stock_check(fitted, data, today, horizon, sigma, service)
-actions = decide.build_actions(fitted, data, stock, today, horizon)
+actions = decide.build_actions(fitted, data, stock, today, horizon, common.lang())
 
 m1, m2, m3 = st.columns(3)
-m1.metric("Acțiuni", len(actions))
-m2.metric("Risc de lipsă", int((stock["status"] == "Lipsă").sum()), help="Produse sub punctul de recomandă.")
-m3.metric("Exces", int((stock["status"] == "Exces").sum()), help="Produse cu prea multe zile de stoc.")
+m1.metric(t("p3.metric_actions"), len(actions))
+m2.metric(t("p3.metric_shortage"), int((stock["status"] == "Lipsă").sum()), help=t("p3.metric_shortage_help"))
+m3.metric(t("p3.metric_excess"), int((stock["status"] == "Exces").sum()), help=t("p3.metric_excess_help"))
 
 # --- Lista de acțiuni ---------------------------------------------------------
-kinds = ["Comandă la furnizor", "Client", "Suprastoc", "Eveniment"]
-selected = st.pills("Filtru", kinds, selection_mode="multi", default=kinds)
-icons = {"Ridicată": ":red[●]", "Medie": ":orange[●]", "Scăzută": ":gray[●]"}
+kinds = ["supplier", "customer", "overstock", "event"]
+selected = st.pills(t("p3.filter"), kinds, selection_mode="multi", default=kinds,
+                    format_func=lambda k: common.label("kind", k))
+dots = {"high": ":red[●]", "medium": ":orange[●]", "low": ":gray[●]"}
 shown = [a for a in actions if a["kind"] in (selected or [])]
 if not shown:
-    st.write("Nicio acțiune pentru filtrul ales.")
+    st.write(t("p3.no_actions"))
 for a in shown:
     with st.container(border=True):
         st.markdown(f"**{a['title']}**")
         st.write(a["text"])
-        st.caption(f"{icons[a['priority']]} Prioritate {a['priority'].lower()} · {a['kind']}")
+        priority = common.label("priority", a["priority"])
+        st.caption(f"{dots[a['priority']]} " + t("p3.priority_caption",
+                                                  priority=priority if common.lang() == "en" else priority.lower(),
+                                                  kind=common.label("kind", a["kind"])))
 
 # --- Act: draft de comandă la furnizor ----------------------------------------
-st.subheader("Act")
+st.subheader(t("p3.act_header"))
 to_order = stock[(stock["status"] == "Lipsă") & (stock["order_qty"] > 0)]
-st.write("Într-un sistem real, acest pas ar trimite automat comanda la furnizor sau un mesaj clientului. "
-         "Aici generăm doar un fișier draft, pe care îl verifică un om.")
+st.write(t("p3.act_text"))
 po = pd.DataFrame({
     "created_on": today.strftime("%Y-%m-%d"),
     "product_id": to_order["product_id"],
@@ -61,32 +65,32 @@ po = pd.DataFrame({
     "value_ron": (to_order["order_qty"] * to_order["price_ron"]).round(2),
 })
 st.download_button(
-    f"Descarcă draftul de comandă la furnizor ({len(po)} produse, {common.fmt_ron(po['value_ron'].sum())})",
+    t("p3.download", n=len(po), value=common.fmt_ron(po["value_ron"].sum())),
     data=po.to_csv(index=False).encode("utf-8-sig"),
-    file_name=f"draft_comanda_furnizor_{today:%Y-%m-%d}.csv",
+    file_name=t("p3.download_file", date=today.strftime("%Y-%m-%d")),
     mime="text/csv",
     disabled=po.empty,
     icon=":material/download:",
 )
 
 # --- Detaliu pe produse -------------------------------------------------------
-with st.expander("Stoc vs. cerere, pe produse"):
+with st.expander(t("p3.table_header")):
     view = stock.sort_values(["status", "shortage_risk"], ascending=[True, False])
+    col_needed, col_status = t("p3.col_needed"), t("p3.col_status")
     st.dataframe(
         pd.DataFrame({
-            "Produs": view["product_name"],
-            "Stoc": view["stock_units"],
-            "Necesar": view["reorder_point"].round().astype(int),
-            "Status": view["status"] + " · " + (view["shortage_risk"] * 100).round().astype(int).astype(str) + "%",
+            t("p3.col_product"): view["product_name"],
+            t("p3.col_stock"): view["stock_units"],
+            col_needed: view["reorder_point"].round().astype(int),
+            col_status: [f"{common.label('stock_status', s)} · {common.fmt_pct(r, 0)}"
+                         for s, r in zip(view["status"], view["shortage_risk"])],
         }),
         hide_index=True, width="stretch",
         column_config={
-            "Necesar": st.column_config.NumberColumn(
-                help="Punct de recomandă = cererea în timpul livrării de la furnizor + stocul de siguranță."),
-            "Status": st.column_config.TextColumn(help="Status și riscul de lipsă în timpul livrării."),
+            col_needed: st.column_config.NumberColumn(help=t("p3.col_needed_help")),
+            col_status: st.column_config.TextColumn(help=t("p3.col_status_help")),
         },
     )
-    st.caption("Risc de lipsă = probabilitatea ca cererea din timpul livrării să depășească stocul "
-               "(distribuție normală, cu abaterea standard a erorilor din perioada de test). "
-               f"Exces = stoc peste {', '.join(f'{d} zile la {c.lower()}' for c, d in model.EXCESS_DAYS.items())} "
-               "(regulă de business demonstrativă).")
+    rules = ", ".join(t("p3.excess_rule_item", days=d, category=common.label("category", c).lower())
+                      for c, d in model.EXCESS_DAYS.items())
+    st.caption(t("p3.table_caption", rules=rules))

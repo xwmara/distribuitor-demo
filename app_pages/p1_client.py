@@ -8,95 +8,95 @@ import streamlit as st
 
 import common
 import model
+from common import t
 
 data = common.get_data()
 fitted = common.get_model()
 lines = common.get_lines()
 today = common.reference_date()
 
-st.title("Predicția pe client")
-st.caption(f"„Azi” în demo: {common.fmt_date(today)}")
+st.title(t("p1.title"))
+st.caption(t("common.today", date=common.fmt_date(today)))
 
 # --- Alegerea clientului ------------------------------------------------------
 customers = data["customers"].sort_values("customer_name")
-labels = dict(zip(customers["customer_id"],
-                  customers["customer_name"] + " · " + customers["segment"] + ", " + customers["city"]))
-customer_id = st.selectbox("Client", customers["customer_id"], format_func=labels.get)
+labels = {
+    c.customer_id: f"{c.customer_name} · {common.label('segment', c.segment)}, {c.city}"
+    for c in customers.itertuples()
+}
+customer_id = st.selectbox(t("p1.customer"), customers["customer_id"], format_func=labels.get)
 cust = customers.set_index("customer_id").loc[customer_id]
 pred = model.predict_next_order(fitted, data, customer_id, today)
 
 # --- Ritmul -------------------------------------------------------------------
-st.subheader("Ritmul de comandă")
+st.subheader(t("p1.rhythm_header"))
 c1, c2 = st.columns(2)
-c1.metric("Ritm calculat din istoric", f"la ~{pred['interval_days']:g} zile",
-          help="Mediana zilelor dintre două comenzi consecutive.")
-c2.metric("Ritm din fișa clientului", f"la {cust['order_every_days']} zile",
-          help="Valoarea din customers.csv, pentru comparație.")
+c1.metric(t("p1.rhythm_calc"), t("p1.rhythm_calc_value", n=common.fmt_days(pred["interval_days"])),
+          help=t("p1.rhythm_calc_help"))
+c2.metric(t("p1.rhythm_card"), t("p1.rhythm_card_value", n=cust["order_every_days"]), help=t("p1.rhythm_card_help"))
 c3, c4 = st.columns(2)
-c3.metric("Ultima comandă", common.fmt_date(pred["last_order_date"]))
-c4.metric("Următoarea comandă estimată", common.fmt_date(pred["date"]))
+c3.metric(t("p1.last_order"), common.fmt_date(pred["last_order_date"]))
+c4.metric(t("p1.next_order"), common.fmt_date(pred["date"]))
 if pred["overdue_days"] > 0:
-    st.warning(f"Comanda era așteptată pe {common.fmt_date(pred['expected_date'])}; "
-               f"clientul a întârziat {pred['overdue_days']} zile față de ritmul lui. Estimăm comanda azi.")
+    st.warning(t("p1.overdue", date=common.fmt_date(pred["expected_date"]), n=pred["overdue_days"]))
 
 # --- Următoarea comandă -------------------------------------------------------
-st.subheader("Următoarea comandă estimată")
+st.subheader(t("p1.next_header"))
 basket = pred["basket"]
 day = basket.iloc[0]
-context = [f"temperatură estimată {common.fmt_num(day['temperature_c'], 1)}°C"]
+context = [t("p1.ctx_temp", t=common.fmt_num(day["temperature_c"], 1))]
 if day["is_fasting"]:
-    context.append("perioadă de post")
+    context.append(t("p1.ctx_fasting"))
 if day["event"]:
-    context.append(f"eveniment: {day['event']}")
+    context.append(t("p1.ctx_event", event=common.label("event", day["event"])))
 st.caption(f"{common.fmt_date(pred['date'])}: " + ", ".join(context))
 
 likely = basket[basket["frequency"] >= 0.5]
 occasional = basket[basket["frequency"] < 0.5]
+col_product, col_qty, col_prob = t("p1.col_product"), t("p1.col_qty"), t("p1.col_prob")
 
 
 def basket_table(df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame({
-        "Produs": df["product_name"],
-        "Cantitate": df["estimated_qty"].round().clip(lower=1).astype(int).astype(str) + " " + df["unit"],
-        "Probabilitate": (df["frequency"] * 100).round().astype(int),
+        col_product: df["product_name"],
+        col_qty: [f"{max(1, round(q))} {common.label('unit', u)}" for q, u in zip(df["estimated_qty"], df["unit"])],
+        col_prob: (df["frequency"] * 100).round().astype(int),
     })
 
 
 st.dataframe(
     basket_table(likely), hide_index=True, width="stretch",
-    column_config={"Probabilitate": st.column_config.ProgressColumn(
-        "Probabilitate", help="În câte comenzi din 100 (ultimele 180 de zile) a apărut produsul.",
-        format="%d%%", min_value=0, max_value=100)},
+    column_config={col_prob: st.column_config.ProgressColumn(
+        col_prob, help=t("p1.col_prob_help"), format="%d%%", min_value=0, max_value=100)},
 )
-st.metric("Valoare estimată (produsele probabile)", common.fmt_ron(likely["estimated_value_ron"].sum()))
+st.metric(t("p1.est_value"), common.fmt_ron(likely["estimated_value_ron"].sum()))
 if not occasional.empty:
-    with st.expander(f"Produse cumpărate ocazional ({len(occasional)})"):
+    with st.expander(t("p1.occasional", n=len(occasional))):
         st.dataframe(basket_table(occasional), hide_index=True, width="stretch",
-                     column_config={"Probabilitate": st.column_config.NumberColumn(format="%d%%")})
+                     column_config={col_prob: st.column_config.NumberColumn(format="%d%%")})
 
-with st.expander("Cum s-a calculat cantitatea"):
+with st.expander(t("p1.how_header")):
     ex = likely.iloc[0] if not likely.empty else basket.iloc[0]
-    st.markdown(
-        f"""
-**Cantitate estimată = cantitate tipică × multiplicator eveniment × factor extern**
-
-Exemplu pentru *{ex['product_name']}*:
-
-- cantitate tipică într-o zi normală (ultimele 180 de zile): **{common.fmt_num(ex['typical_qty'], 2)}**
-- multiplicator eveniment: **×{common.fmt_num(ex['event_factor'], 2)}** {f"({ex['event']})" if ex['event'] else "(niciun eveniment)"}
-- factor extern = temperatură ×{common.fmt_num(ex['temp_factor'], 2)} · post ×{common.fmt_num(ex['post_factor'], 2)}
-  = **×{common.fmt_num(ex['external_factor'], 2)}**
-
-Rezultat: {common.fmt_num(ex['typical_qty'], 2)} × {common.fmt_num(ex['event_factor'], 2)} ×
-{common.fmt_num(ex['external_factor'], 2)} = **{common.fmt_num(ex['estimated_qty'], 1)} {ex['unit']}**
-(rotunjit: {max(1, round(ex['estimated_qty']))}).
-
-Data = ultima comandă + ritmul calculat ({common.fmt_date(pred['last_order_date'])} + {round(pred['interval_days'])} zile).
-"""
-    )
+    event_note = (t("p1.event_note", event=common.label("event", ex["event"])) if ex["event"]
+                  else t("p1.no_event"))
+    st.markdown(t(
+        "p1.how_md",
+        product=ex["product_name"],
+        typical=common.fmt_num(ex["typical_qty"], 2),
+        event_factor=common.fmt_num(ex["event_factor"], 2),
+        event_note=event_note,
+        temp_factor=common.fmt_num(ex["temp_factor"], 2),
+        post_factor=common.fmt_num(ex["post_factor"], 2),
+        external=common.fmt_num(ex["external_factor"], 2),
+        qty=common.fmt_num(ex["estimated_qty"], 1),
+        unit=common.label("unit", ex["unit"]),
+        rounded=max(1, round(ex["estimated_qty"])),
+        last=common.fmt_date(pred["last_order_date"]),
+        interval=round(pred["interval_days"]),
+    ))
 
 # --- Istoricul ----------------------------------------------------------------
-st.subheader("Istoricul comenzilor")
+st.subheader(t("p1.history_header"))
 cl = lines[lines["customer_id"] == customer_id]
 orders = (cl.groupby(["order_id", "order_date", "status"])
           .agg(value_ron=("value_ron", "sum"), n_products=("product_id", "nunique"))
@@ -105,24 +105,25 @@ orders["gap_days"] = orders["order_date"].diff().dt.days
 
 monthly = (orders.assign(month=orders["order_date"].dt.to_period("M").dt.to_timestamp())
            .groupby("month")["value_ron"].sum().reset_index())
-st.markdown("**Valoarea comenzilor pe lună (RON)**")
-st.bar_chart(monthly, x="month", y="value_ron", x_label="Luna", y_label="RON", height=240)
+st.markdown(f"**{t('p1.monthly_title')}**")
+common.time_chart(monthly, "month", ["value_ron"], t("p1.axis_month"), t("p1.axis_ron"),
+                  kind="bar", height=240, monthly=True)
 
-st.markdown("**Zile între două comenzi**")
-st.line_chart(orders.dropna(subset=["gap_days"]), x="order_date", y="gap_days",
-              x_label="Data comenzii", y_label="Zile", height=200)
+gaps = orders.dropna(subset=["gap_days"])[["order_date", "gap_days"]]
+st.markdown(f"**{t('p1.gap_title')}**")
+common.time_chart(gaps, "order_date", ["gap_days"], t("p1.axis_order_date"), t("p1.axis_days"), height=200)
 
 counts = orders["status"].value_counts()
-st.caption(f"{len(orders)} comenzi în 24 de luni: "
-           + ", ".join(f"{counts.get(s, 0)} {s}" for s in ["livrată", "întârziată", "pierdută"])
-           + ". Comenzile pierdute contează ca cerere (clientul a cerut marfa).")
+parts = ", ".join(f"{common.label('status_many', s)}: {common.fmt_num(counts.get(s, 0))}"
+                  for s in ["livrată", "întârziată", "pierdută"])
+st.caption(t("p1.status_caption", n=common.fmt_num(len(orders)), parts=parts))
 
 last = orders.tail(8).iloc[::-1]
 st.dataframe(
     pd.DataFrame({
-        "Data": last["order_date"].dt.strftime("%d.%m.%Y"),
-        "Valoare": last["value_ron"].map(common.fmt_ron),
-        "Status": last["status"],
+        t("p1.col_date"): [common.fmt_date(d) for d in last["order_date"]],
+        t("p1.col_value"): last["value_ron"].map(common.fmt_ron),
+        t("p1.col_status"): last["status"].map(lambda s: common.label("status", s)),
     }),
     hide_index=True, width="stretch",
 )

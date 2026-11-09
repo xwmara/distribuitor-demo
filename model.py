@@ -434,7 +434,7 @@ def event_scenarios(model: dict, data: dict, bands: pd.DataFrame, widening: floa
     ss = safety_stock(sigma, len(daily), service_level)
     return {
         "days_covered": len(daily),
-        "daily": pd.DataFrame({"Scăzut": daily * low_mult, "De bază": daily, "Ridicat": daily * high_mult}),
+        "daily": pd.DataFrame({"low": daily * low_mult, "base": daily, "high": daily * high_mult}),
         "low": base * low_mult, "base": base, "high": base * high_mult,
         "low_mult": low_mult, "high_mult": high_mult, "widening": w,
         "no_event": float(daily_no_event.sum()),

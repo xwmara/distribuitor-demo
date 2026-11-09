@@ -12,6 +12,7 @@ generate cu seed 42 (le obții identic rulând `python generate_data.py`).
 | Fișier | Ce face |
 |---|---|
 | `app.py` | Punctul de intrare. Setează pagina (layout îngust, bun pe telefon), definește cele 5 pagini cu `st.navigation` și afișează mesajul „Date simulate…” deasupra fiecărei pagini. |
+| `i18n.py` | Toate textele interfeței, în română și engleză, ordonate pe pagini, plus traducerea la afișare a valorilor din CSV (categorii, evenimente, statusuri, unități) și formatarea pe limbă (RO 1.234,5 și 01.11.2026; EN 1,234.5 și 2026-11-01). |
 | `common.py` | Încărcarea datelor, a modelului și a backtestului cu `st.cache_data`, deci se calculează o singură dată per server. Conține și mesajul obligatoriu și formatarea românească (1.234,5; 01.11.2026). |
 | `model.py` | Modelul: citirea datelor, ritmul clienților, multiplicatorii (temperatură, post, eveniment), cantitatea tipică, prognoza zilnică, următoarea comandă, backtestul, MAPE, scenariile, stocul de siguranță și verificarea stocului. Nu depinde de Streamlit, deci se poate testa separat. |
 | `decide.py` | Regulile care transformă prognoza în acțiuni: comandă la furnizor, alertă pe client, client care a întârziat, suprastoc, eveniment care se apropie. |
@@ -33,6 +34,8 @@ Fluxul datelor: `generate_data.py` → `data/*.csv` → `model.py` (calcule) →
 ---
 
 ## 2. Ce face fiecare pagină
+
+**Limba**: selector RO / EN în sidebar (păstrat între pagini prin `st.session_state`), sau link cu `?lang=en`. Acțiunile din `decide.py` se generează din șabloane traduse; numele clienților și ale produselor rămân neschimbate.
 
 **Start (`home.py`)**
 - Problema: lipsa de stoc, suprastocul și comenzile reactive.

@@ -7,37 +7,46 @@ Regulile sunt simple și explicite, ca un om să le poată verifica:
 3. Client care a depășit clar ritmul obișnuit        → "Contactează clientul"
 4. Produs cu stoc pentru prea multe zile             → "Suprastoc"
 5. Eveniment care începe în orizontul de planificare → "Pregătește evenimentul"
+
+Textele vin din șabloanele din i18n.py, în limba cerută (lang = "ro" sau "en").
+Prioritatea și tipul acțiunii sunt coduri ("high", "supplier"…), traduse la afișare.
 """
 
 import pandas as pd
 
+import i18n
 import model
 
-PRIORITY_ORDER = {"Ridicată": 0, "Medie": 1, "Scăzută": 2}
-
-
-def fmt_date(d) -> str:
-    return pd.Timestamp(d).strftime("%d.%m.%Y")
-
-
-def fmt_num(x, decimals: int = 0) -> str:
-    """1234.5 → '1.234,5' (format românesc)."""
-    s = f"{x:,.{decimals}f}"
-    return s.replace(",", "X").replace(".", ",").replace("X", ".")
-
-
-def join_ro(items: list) -> str:
-    """['a', 'b', 'c'] → 'a, b și c'."""
-    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " și " + items[-1]
-
-
-def when(days: int) -> str:
-    return "azi" if days == 0 else "mâine" if days == 1 else f"peste {days} zile"
+PRIORITY_ORDER = {"high": 0, "medium": 1, "low": 2}
 
 
 def build_actions(fitted: dict, data: dict, stock: pd.DataFrame, today: pd.Timestamp,
-                  horizon_days: int) -> list:
+                  horizon_days: int, lang: str = i18n.DEFAULT_LANG) -> list:
     """Întoarce o listă de acțiuni: dict(priority, kind, title, text)."""
+
+    # Scurtături pentru texte și formatare în limba cerută
+    def t(key, **kw):
+        return i18n.t(key, lang, **kw)
+
+    def num(x, decimals=0):
+        return i18n.fmt_num(x, lang, decimals)
+
+    def date(d):
+        return i18n.fmt_date(d, lang)
+
+    def cat(c):
+        return i18n.label("category", c, lang).lower()
+
+    def unit(u):
+        return i18n.label("unit", u, lang)
+
+    def when(days):
+        if days == 0:
+            return t("act.when_today")
+        if days == 1:
+            return t("act.when_tomorrow")
+        return t("act.when_days", n=days)
+
     actions = []
     customers = data["customers"].set_index("customer_id")
     baseline = fitted["baseline"].merge(data["products"][["product_id", "product_name"]], on="product_id")
@@ -46,14 +55,12 @@ def build_actions(fitted: dict, data: dict, stock: pd.DataFrame, today: pd.Times
     shortage = stock[stock["status"] == "Lipsă"].sort_values("shortage_risk", ascending=False)
     for p in shortage.itertuples(index=False):
         actions.append({
-            "priority": "Ridicată" if p.shortage_risk >= 0.30 else "Medie",
-            "kind": "Comandă la furnizor",
-            "title": f"Comandă acum la furnizor: {p.product_name}",
-            "text": (f"Stoc: {fmt_num(p.stock_units)} ({p.unit}). Cererea estimată până sosește marfa "
-                     f"({p.lead_time_days} zile): {fmt_num(p.demand_lead)}, plus stoc de siguranță "
-                     f"{fmt_num(p.safety_stock)}. Risc de lipsă: {p.shortage_risk:.0%}. "
-                     f"Recomandat: {fmt_num(p.order_qty)} ({p.unit}), acoperă {p.lead_time_days} + "
-                     f"{horizon_days} zile."),
+            "priority": "high" if p.shortage_risk >= 0.30 else "medium",
+            "kind": "supplier",
+            "title": t("act.supplier_title", product=p.product_name),
+            "text": t("act.supplier_text", stock=num(p.stock_units), unit=unit(p.unit), lead=p.lead_time_days,
+                      demand=num(p.demand_lead), ss=num(p.safety_stock),
+                      risk=i18n.fmt_pct(p.shortage_risk, lang, 0), qty=num(p.order_qty), horizon=horizon_days),
         })
 
     # 2. Clienți care vor comanda un produs fără stoc suficient ÎNAINTE să poată ajunge
@@ -65,17 +72,15 @@ def build_actions(fitted: dict, data: dict, stock: pd.DataFrame, today: pd.Times
         hit = hit[o.days_until < hit["lead_time_days"]]
         if hit.empty:
             continue
-        parts = [f"{cat.lower()} ({', '.join(names)})"
-                 for cat, names in hit.groupby("category")["product_name"].apply(list).items()]
+        items = [t("act.item", category=cat(c), products=", ".join(names))
+                 for c, names in hit.groupby("category")["product_name"].apply(list).items()]
         name = customers.loc[o.customer_id, "customer_name"]
         actions.append({
-            "priority": "Ridicată" if o.days_until <= 3 else "Medie",
-            "kind": "Client",
-            "title": f"{name}: comandă estimată {when(o.days_until)}",
-            "text": (f"Clientul {name} comandă de obicei la ~{o.interval_days:g} zile. Următoarea comandă "
-                     f"estimată: {fmt_date(o.order_date)}. Stoc insuficient la {join_ro(parts)}, iar marfa nouă "
-                     f"ajunge în {int(hit['lead_time_days'].max())} zile de la comandă: comandă acum la "
-                     f"furnizor și confirmă cu clientul cantitățile."),
+            "priority": "high" if o.days_until <= 3 else "medium",
+            "kind": "customer",
+            "title": t("act.customer_title", name=name, when=when(o.days_until)),
+            "text": t("act.customer_text", name=name, interval=i18n.fmt_days(o.interval_days, lang), date=date(o.order_date),
+                      items=i18n.join_list(items, lang), lead=int(hit["lead_time_days"].max())),
         })
 
     # 3. Clienți care au depășit clar ritmul obișnuit (posibil pierduți către concurență)
@@ -84,12 +89,11 @@ def build_actions(fitted: dict, data: dict, stock: pd.DataFrame, today: pd.Times
         if days_since > max(1.5 * r.interval_days, r.interval_days + 2):
             name = customers.loc[r.customer_id, "customer_name"]
             actions.append({
-                "priority": "Medie",
-                "kind": "Client",
-                "title": f"Contactează clientul: {name}",
-                "text": (f"Nu a mai comandat de {days_since} zile, deși comandă de obicei la "
-                         f"~{r.interval_days:g} zile (ultima comandă: {fmt_date(r.last_order_date)}). "
-                         f"Un telefon acum poate salva comanda."),
+                "priority": "medium",
+                "kind": "customer",
+                "title": t("act.contact_title", name=name),
+                "text": t("act.contact_text", days=days_since, interval=i18n.fmt_days(r.interval_days, lang),
+                          last=date(r.last_order_date)),
             })
 
     # 4. Suprastoc
@@ -97,15 +101,13 @@ def build_actions(fitted: dict, data: dict, stock: pd.DataFrame, today: pd.Times
     for p in excess.itertuples(index=False):
         buyers = baseline[baseline["product_id"] == p.product_id].assign(
             weight=lambda d: d["typical_qty"] * d["frequency"]).nlargest(3, "weight")
-        buyer_names = ", ".join(customers.loc[buyers["customer_id"], "customer_name"])
         actions.append({
-            "priority": "Medie" if p.category == "Lactate" else "Scăzută",
-            "kind": "Suprastoc",
-            "title": f"Suprastoc: {p.product_name}",
-            "text": (f"Stoc: {fmt_num(p.stock_units)} = ~{fmt_num(p.days_of_cover)} zile de vânzări "
-                     f"(prag: {p.excess_threshold_days} zile pentru {p.category.lower()}). "
-                     f"~{fmt_num(p.excess_units)} ({p.unit}) peste prag. Nu reaproviziona; propune o ofertă "
-                     f"clienților care îl cumpără des: {buyer_names}."),
+            "priority": "medium" if p.category == "Lactate" else "low",
+            "kind": "overstock",
+            "title": t("act.overstock_title", product=p.product_name),
+            "text": t("act.overstock_text", stock=num(p.stock_units), cover=num(p.days_of_cover),
+                      threshold=p.excess_threshold_days, category=cat(p.category), excess=num(p.excess_units),
+                      unit=unit(p.unit), buyers=", ".join(customers.loc[buyers["customer_id"], "customer_name"])),
         })
 
     # 5. Evenimente care încep în curând
@@ -115,15 +117,16 @@ def build_actions(fitted: dict, data: dict, stock: pd.DataFrame, today: pd.Times
     for e in events[events["start"] <= limit].itertuples(index=False):
         rows = ef[ef["event"] == e.event]
         detail = "; ".join(
-            f"{ctype}: " + ", ".join(f"{r.category.lower()} ×{fmt_num(r.event_factor, 2)}"
-                                     for r in rows[rows["customer_type"] == ctype].itertuples())
+            f"{i18n.label('customer_type', ctype, lang)}: " + ", ".join(
+                t("act.event_detail_item", category=cat(r.category), mult=num(r.event_factor, 2))
+                for r in rows[rows["customer_type"] == ctype].itertuples())
             for ctype in sorted(rows["customer_type"].unique()))
         actions.append({
-            "priority": "Medie",
-            "kind": "Eveniment",
-            "title": f"Pregătește evenimentul: {e.event} ({fmt_date(e.start)} – {fmt_date(e.end)})",
-            "text": (f"Începe {when((e.start - today).days)}. Multiplicatori estimați din istoric: {detail}. "
-                     f"Verifică scenariile pe pagina „Eveniment și scenarii”."),
+            "priority": "medium",
+            "kind": "event",
+            "title": t("act.event_title", event=i18n.label("event", e.event, lang),
+                       start=date(e.start), end=date(e.end)),
+            "text": t("act.event_text", when=when((e.start - today).days), detail=detail),
         })
 
     return sorted(actions, key=lambda a: PRIORITY_ORDER[a["priority"]])

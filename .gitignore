@@ -29,3 +29,6 @@ htmlcov/
 Thumbs.db
 
 # Note: the data/ folder is committed on purpose so the app starts without a build step.
+
+# Livrabile locale (prezentări, cheat sheet, Power BI): nu intră în git
+deliverables/

@@ -38,6 +38,9 @@ estimated quantity = typical quantity of the customer for that product
 
 ## App pages
 
+The app is bilingual (Romanian / English): use the language switch in the sidebar, or open it with `?lang=en` in the URL. All interface text lives in `i18n.py`.
+
+
 0. **Start**: the problem (stock-outs, overstock, reactive ordering) and the Predict → Decide → Act cycle.
 1. **Customer prediction**: order history, rhythm, and the next estimated order (date, products, quantities).
 2. **Event & scenarios**: pick an event, category, stock, price and date; see demand in three scenarios and the recommended stock.
@@ -91,7 +94,8 @@ All file paths are relative to the source files (`pathlib`), so the app behaves 
 
 ```
 app.py               entry point, navigation, disclaimer on every page
-common.py            cached data/model loading and formatting helpers
+common.py            cached data/model loading, current language, formatting and chart helpers
+i18n.py              all interface texts in Romanian and English, plus number/date formatting per language
 model.py             the forecasting model, accuracy, scenarios, safety stock, stock check
 decide.py            rules that turn the forecast into actions
 generate_data.py     simulated data generator (fixed seed)

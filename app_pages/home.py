@@ -3,57 +3,39 @@
 import streamlit as st
 
 import common
+from common import t
 
 data = common.get_data()
 orders = data["orders"]
 today = common.reference_date()
 
-st.title("Distribuitor Demo SRL")
-st.caption("Demo: prognoza comenzilor clienților B2B și acțiuni recomandate")
+st.title(t("home.title"))
+st.caption(t("home.caption"))
+st.markdown(t("home.problem_md"))
 
-st.markdown(
-    """
-**Problema.** Un distribuitor de alimente servește restaurante, cafenele, hoteluri și magazine mici.
-Fără prognoză, lucrează reactiv: află ce trebuie abia când vine comanda.
-
-- **Lipsă de stoc**: clientul cere, produsul nu e pe raft, comanda se pierde sau pleacă la concurență.
-- **Suprastoc**: bani blocați în marfă, iar la lactate risc de expirare.
-- **Comenzi reactive**: comanda la furnizor se face târziu, de obicei după ce a apărut problema.
-
-**Ideea.** Mare parte din cerere se poate anticipa: fiecare client comandă într-un ritm,
-iar evenimentele (Black Friday, Crăciun, Paște), postul și temperatura o mută previzibil.
-"""
-)
-
-st.subheader("Ciclul Predict → Decide → Act")
+st.subheader(t("home.cycle_header"))
 steps = [
-    (":material/insights: Predict",
-     "Estimează când comandă fiecare client și ce cantități, pornind de la ritmul lui istoric, "
-     "ajustat cu evenimente și factori externi."),
-    (":material/rule: Decide",
-     "Compară cererea estimată cu stocul: unde e risc de lipsă, unde e exces și ce trebuie comandat."),
-    (":material/bolt: Act",
-     "Transformă deciziile în acțiuni: comandă la furnizor, telefon la client, ofertă pentru stocul în exces."),
+    (":material/insights:", "home.step_predict_title", "home.step_predict_text"),
+    (":material/rule:", "home.step_decide_title", "home.step_decide_text"),
+    (":material/bolt:", "home.step_act_title", "home.step_act_text"),
 ]
-for title, text in steps:
+for icon, title_key, text_key in steps:
     with st.container(border=True):
-        st.markdown(f"**{title}**")
-        st.write(text)
+        st.markdown(f"**{icon} {t(title_key)}**")
+        st.write(t(text_key))
 
-st.subheader("Ce date are demo-ul")
+st.subheader(t("home.data_header"))
 c1, c2 = st.columns(2)
-c1.metric("Clienți", len(data["customers"]))
-c2.metric("Produse", len(data["products"]))
+c1.metric(t("home.metric_customers"), len(data["customers"]))
+c2.metric(t("home.metric_products"), len(data["products"]))
 c3, c4 = st.columns(2)
-c3.metric("Comenzi în istoric", common.fmt_num(orders["order_id"].nunique()))
-c4.metric("Luni de istoric", round((orders["order_date"].max() - orders["order_date"].min()).days / 30.4))
-st.caption(
-    f"Istoric: {common.fmt_date(orders['order_date'].min())} – {common.fmt_date(orders['order_date'].max())}. "
-    f"„Azi” în demo: {common.fmt_date(today)} (ziua de după ultima comandă din istoric)."
-)
+c3.metric(t("home.metric_orders"), common.fmt_num(orders["order_id"].nunique()))
+c4.metric(t("home.metric_months"), round((orders["order_date"].max() - orders["order_date"].min()).days / 30.4))
+st.caption(t("home.history_caption", start=common.fmt_date(orders["order_date"].min()),
+             end=common.fmt_date(orders["order_date"].max()), today=common.fmt_date(today)))
 
-st.subheader("Paginile")
-st.page_link("app_pages/p1_client.py", label="1. Predicția pe client", icon=":material/person_search:")
-st.page_link("app_pages/p2_scenarii.py", label="2. Eveniment și scenarii", icon=":material/event:")
-st.page_link("app_pages/p3_decide.py", label="3. Decide: acțiuni recomandate", icon=":material/checklist:")
-st.page_link("app_pages/p4_acuratete.py", label="4. Acuratețea prognozei", icon=":material/query_stats:")
+st.subheader(t("home.pages_header"))
+st.page_link("app_pages/p1_client.py", label=t("home.link_client"), icon=":material/person_search:")
+st.page_link("app_pages/p2_scenarii.py", label=t("home.link_scenarios"), icon=":material/event:")
+st.page_link("app_pages/p3_decide.py", label=t("home.link_decide"), icon=":material/checklist:")
+st.page_link("app_pages/p4_acuratete.py", label=t("home.link_accuracy"), icon=":material/query_stats:")
