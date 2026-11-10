@@ -1,5 +1,5 @@
 """
-common.py — lucruri folosite de toate paginile:
+common.py: lucruri folosite de toate paginile:
 - încărcarea datelor și calculul modelului cu st.cache_data (se fac o singură dată, apoi din cache);
 - limba aleasă (st.session_state["lang"]) și scurtături pentru textele din i18n.py;
 - formatarea numerelor și a datelor în limba aleasă.
@@ -33,6 +33,12 @@ def get_model() -> dict:
 def get_backtest() -> dict:
     """Modelul antrenat doar pe prima parte a istoricului și testat pe restul."""
     return model.backtest(get_data())
+
+
+@st.cache_data(show_spinner=False)
+def get_rolling_backtest() -> dict:
+    """Backtest pe ferestre succesive: model reantrenat lunar + baseline naiv."""
+    return model.rolling_backtest(get_data())
 
 
 @st.cache_data(show_spinner=False)

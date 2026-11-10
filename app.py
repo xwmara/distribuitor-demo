@@ -1,5 +1,5 @@
 """
-app.py — punctul de intrare al aplicației Streamlit.
+app.py: punctul de intrare al aplicației Streamlit.
 
 Rulare: streamlit run app.py
 

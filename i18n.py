@@ -1,5 +1,5 @@
 """
-i18n.py — toate textele aplicației, în română (ro) și engleză (en).
+i18n.py: toate textele aplicației, în română (ro) și engleză (en).
 
 - TEXTS: textele interfeței, grupate în ordinea paginilor (app → start → 1 → 2 → 3 → acțiuni → 4).
   Câmpurile între acolade, ex. {date}, se completează la afișare.
@@ -321,6 +321,10 @@ TEXTS = {
     "p4.mape_total_help": {
         "ro": "Media lui |real − prognoză| / real, pe toate săptămânile și categoriile din test.",
         "en": "Average of |actual − forecast| / actual over all test weeks and categories."},
+    "p4.wape_total": {"ro": "WAPE total", "en": "Overall WAPE"},
+    "p4.wape_total_help": {
+        "ro": "Σ|real − prognoză| / Σ real: eroarea ponderată cu volumul, mai stabilă la volume mici.",
+        "en": "Σ|actual − forecast| / Σ actual: the volume-weighted error, more stable at low volumes."},
     "p4.fc_header": {"ro": "Prognoză vs. comenzi reale simulate", "en": "Forecast vs. simulated actual orders"},
     "p4.category": {"ro": "Categorie", "en": "Category"},
     "p4.series_forecast": {"ro": "Prognoză", "en": "Forecast"},
@@ -363,6 +367,29 @@ TEXTS = {
     "p4.col_category": {"ro": "Categorie", "en": "Category"},
     "p4.col_low": {"ro": "Scăzut", "en": "Low"},
     "p4.col_high": {"ro": "Ridicat", "en": "High"},
+    "p4.checks_header": {"ro": "Verificări suplimentare", "en": "Additional checks"},
+    "p4.checks_caption": {
+        "ro": "Aceleași {n} săptămâni de test. Backtest pe ferestre succesive: la începutul fiecărei luni, modelul "
+              "e reantrenat doar pe datele de până atunci și prezice luna respectivă ({origins} reantrenări). "
+              "Baseline naiv: media reală a ultimelor {weeks} săptămâni dinaintea lunii.",
+        "en": "The same {n} test weeks. Rolling-origin backtest: at the start of each month the model is retrained "
+              "only on data available until then and forecasts that month ({origins} retrains). "
+              "Naive baseline: the actual average of the last {weeks} weeks before the month."},
+    "p4.col_method": {"ro": "Metodă", "en": "Method"},
+    "p4.method_static": {"ro": "Model, antrenat o dată ({date})", "en": "Model, trained once ({date})"},
+    "p4.method_rolling": {"ro": "Model, reantrenat lunar", "en": "Model, retrained monthly"},
+    "p4.method_baseline": {"ro": "Baseline naiv (media ultimelor {weeks} săpt.)",
+                           "en": "Naive baseline (last {weeks}-week average)"},
+    "p4.col_mape": {"ro": "MAPE", "en": "MAPE"},
+    "p4.col_wape": {"ro": "WAPE", "en": "WAPE"},
+    "p4.vs_baseline": {
+        "ro": "Față de baseline-ul naiv, modelul reantrenat lunar are cu **{pct}** mai puțină eroare (WAPE).",
+        "en": "Compared with the naive baseline, the monthly retrained model has **{pct}** less error (WAPE)."},
+    "p4.coverage": {
+        "ro": "**Banda scenariilor, verificată fără privit în viitor**: calibrată doar pe lunile anterioare, banda "
+              "scăzut–ridicat a cuprins realul în **{pct}** din {n} săptămâni (ținta pentru P10–P90: 80%).",
+        "en": "**Scenario band, checked without looking ahead**: calibrated only on earlier months, the low–high "
+              "band contained the actual value in **{pct}** of {n} weeks (target for P10–P90: 80%)."},
     "p4.worst_header": {"ro": "Cele mai mari 5 erori", "en": "The 5 largest errors"},
     "p4.col_week": {"ro": "Săptămâna", "en": "Week"},
     "p4.col_actual_fc": {"ro": "Real / Prognoză", "en": "Actual / Forecast"},

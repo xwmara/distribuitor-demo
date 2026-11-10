@@ -1,4 +1,4 @@
-"""Pagina 4 — Acuratețea prognozei.
+"""Pagina 4: Acuratețea prognozei.
 
 Modelul este antrenat doar pe prima parte a istoricului și comparat cu comenzile
 din perioada următoare (pe care nu le-a văzut). Eroarea se măsoară cu MAPE."""
@@ -20,7 +20,9 @@ st.caption(t("p4.caption", train_start=common.fmt_date(bt["train_start"]), train
 
 overall = model.mape(weekly)
 by_cat = model.mape_by(weekly, "category")
-st.metric(t("p4.mape_total"), common.fmt_pct(overall), help=t("p4.mape_total_help"))
+top1, top2 = st.columns(2)
+top1.metric(t("p4.mape_total"), common.fmt_pct(overall), help=t("p4.mape_total_help"))
+top2.metric(t("p4.wape_total"), common.fmt_pct(model.wape(weekly)), help=t("p4.wape_total_help"))
 cols = st.columns(3)
 for col, cat in zip(cols, model.CATEGORIES):
     col.metric(common.label("category", cat), common.fmt_pct(by_cat[cat]))
@@ -69,6 +71,28 @@ st.dataframe(
     }),
     hide_index=True, width="stretch",
 )
+
+# --- Verificări suplimentare: reantrenare lunară, baseline naiv, banda fără privit în viitor ---
+st.subheader(t("p4.checks_header"))
+rb = common.get_rolling_backtest()
+rw = rb["weekly"]
+st.caption(t("p4.checks_caption", n=rw["week_start"].nunique(), origins=rb["n_origins"], weeks=rb["baseline_weeks"]))
+rolling_wape, baseline_wape = model.wape(rw), model.wape(rw, "baseline_error")
+st.dataframe(
+    pd.DataFrame({
+        t("p4.col_method"): [t("p4.method_static", date=common.fmt_date(bt["train_end"])),
+                             t("p4.method_rolling"),
+                             t("p4.method_baseline", weeks=rb["baseline_weeks"])],
+        t("p4.col_mape"): [common.fmt_pct(overall), common.fmt_pct(model.mape(rw)),
+                           common.fmt_pct(rw["baseline_abs_pct_error"].mean())],
+        t("p4.col_wape"): [common.fmt_pct(model.wape(weekly)), common.fmt_pct(rolling_wape),
+                           common.fmt_pct(baseline_wape)],
+    }),
+    hide_index=True, width="stretch",
+)
+st.markdown(f"- {t('p4.vs_baseline', pct=common.fmt_pct(1 - rolling_wape / baseline_wape, 0))}")
+cov = rb["coverage"]
+st.markdown(f"- {t('p4.coverage', pct=common.fmt_pct(cov['inside_band'].mean(), 0), n=cov['week_start'].nunique())}")
 
 with st.expander(t("p4.worst_header")):
     worst = weekly.nlargest(5, "abs_pct_error")

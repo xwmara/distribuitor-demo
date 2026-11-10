@@ -1,4 +1,4 @@
-"""Pagina 1 — Predicția pe client (Predict).
+"""Pagina 1: Predicția pe client (Predict).
 
 Alegi un client și vezi: ritmul lui de comandă, istoricul și următoarea comandă estimată
 (data, produsele și cantitățile)."""

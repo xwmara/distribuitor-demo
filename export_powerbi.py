@@ -1,5 +1,5 @@
 """
-export_powerbi.py — scrie patru CSV-uri pentru Power BI în data/powerbi/.
+export_powerbi.py: scrie patru CSV-uri pentru Power BI în data/powerbi/.
 
   orders_history.csv       comenzile istorice (o linie = un produs dintr-o comandă)
   forecast_scenarios.csv   prognoza zilnică pe produs, următoarele 90 de zile, în 3 scenarii

@@ -1,5 +1,5 @@
 """
-model.py — modelul demonstrativ de prognoză (fără machine learning).
+model.py: modelul demonstrativ de prognoză (fără machine learning).
 
 IDEEA, PE SCURT
 ---------------
@@ -126,10 +126,10 @@ def fit_model(data: dict, train_end=None, recent_days: int = RECENT_DAYS) -> dic
     lines = lines.reset_index(drop=True)
     fitted_until = lines["order_date"].max()
 
-    # Pasul 1 — ritmul clientului
+    # Pasul 1: ritmul clientului
     rhythm = customer_rhythm(lines)
 
-    # Pasul 2 — "indicele" fiecărei linii: cantitatea împărțită la media clientului
+    # Pasul 2: "indicele" fiecărei linii: cantitatea împărțită la media clientului
     # pentru acel produs. Așa putem compara un restaurant mic cu un hotel mare.
     lines["index"] = lines["quantity"] / lines.groupby(["customer_id", "product_id"])["quantity"].transform("mean")
     lines["is_normal"] = (lines["event"] == "") & ~lines["is_fasting"]
@@ -151,7 +151,7 @@ def fit_model(data: dict, train_end=None, recent_days: int = RECENT_DAYS) -> dic
     event_factors = _ratio_to_normal(lines, lines["event"] != "", ["event"] + KEYS, "adjusted", "event_factor")
     lines = _attach(lines, event_factors, ["event"] + KEYS, "event_factor")
 
-    # Pasul 3 — cantitatea tipică: cantitatea "curățată" de efectele zilei, pe ultimele N zile
+    # Pasul 3: cantitatea tipică: cantitatea "curățată" de efectele zilei, pe ultimele N zile
     lines["qty_normal"] = lines["quantity"] / (lines["temp_factor"] * lines["post_factor"] * lines["event_factor"])
     recent = lines[lines["order_date"] > fitted_until - pd.Timedelta(days=recent_days)]
     n_recent = recent.groupby("customer_id")["order_id"].nunique().rename("n_recent_orders").reset_index()
@@ -331,6 +331,69 @@ def mape(weekly: pd.DataFrame) -> float:
 
 def mape_by(weekly: pd.DataFrame, column: str) -> pd.Series:
     return weekly.groupby(column)["abs_pct_error"].mean()
+
+
+def wape(weekly: pd.DataFrame, error_col: str = "error") -> float:
+    """WAPE = Σ|real − prognoză| / Σ real. Eroarea ponderată cu volumul:
+    săptămânile și categoriile mari contează mai mult, ca în bani."""
+    return float(weekly[error_col].abs().sum() / weekly["actual"].sum())
+
+
+def rolling_backtest(data: dict, first_origin=None, baseline_weeks: int = 4, min_prior_weeks: int = 8) -> dict:
+    """Backtest pe ferestre succesive (rolling origin), lună cu lună.
+
+    La începutul fiecărei luni din perioada de test:
+      1. modelul e reantrenat doar pe datele de până în ziua precedentă;
+      2. prezice săptămânile care încep în luna respectivă;
+      3. baseline-ul naiv prezice, pentru aceleași săptămâni, media reală a ultimelor
+         `baseline_weeks` săptămâni complete dinaintea lunii (aceeași informație ca modelul).
+    Apoi verificăm benzile scenariilor fără să ne uităm în viitor: banda pentru o lună e
+    calibrată doar pe erorile din lunile anterioare."""
+    first_origin = pd.Timestamp(first_origin or pd.Timestamp(BACKTEST_TRAIN_END) + pd.Timedelta(days=1))
+    test_end = data["orders"]["order_date"].max()
+    lines = prepare_lines(data)
+    actual_all = (lines.assign(week_start=_week_start(lines["order_date"]))
+                  .groupby(["week_start", "category"])["quantity"].sum().rename("actual").reset_index())
+
+    rows = []
+    for origin in pd.date_range(first_origin, test_end, freq="MS"):
+        month_end = origin + pd.offsets.MonthEnd(0)
+        weeks = actual_all[(actual_all["week_start"] >= origin) & (actual_all["week_start"] <= month_end)
+                           & (actual_all["week_start"] + pd.Timedelta(days=6) <= test_end)]
+        if weeks.empty:
+            continue
+        fitted = fit_model(data, train_end=origin - pd.Timedelta(days=1))
+        fc = daily_demand(fitted, data["factors"], weeks["week_start"].min(),
+                          weeks["week_start"].max() + pd.Timedelta(days=6))
+        fc = (fc.assign(week_start=_week_start(fc["date"]))
+              .groupby(["week_start", "category"])["forecast"].sum().reset_index())
+        prior = actual_all[actual_all["week_start"] + pd.Timedelta(days=6) < origin]
+        prior = prior[prior["week_start"] >= prior["week_start"].max() - pd.Timedelta(weeks=baseline_weeks - 1)]
+        baseline = prior.groupby("category")["actual"].mean().rename("baseline").reset_index()
+        rows.append(weeks.merge(fc, on=["week_start", "category"], how="left")
+                    .merge(baseline, on="category", how="left").assign(origin=origin))
+
+    weekly = pd.concat(rows, ignore_index=True)
+    weekly["error"] = weekly["actual"] - weekly["forecast"]
+    weekly["abs_pct_error"] = weekly["error"].abs() / weekly["actual"]
+    weekly["pct_error"] = weekly["error"] / weekly["forecast"]
+    weekly["baseline_error"] = weekly["actual"] - weekly["baseline"]
+    weekly["baseline_abs_pct_error"] = weekly["baseline_error"].abs() / weekly["actual"]
+
+    # Acoperirea benzii P10–P90, calibrată doar pe lunile anterioare (fără privit în viitor)
+    checks = []
+    for origin in sorted(weekly["origin"].unique()):
+        past = weekly[weekly["origin"] < origin]
+        if past.empty or past.groupby("category").size().min() < min_prior_weeks:
+            continue  # prea puține erori anterioare ca să calibrăm o bandă
+        bands = scenario_bands(past)
+        now = weekly[weekly["origin"] == origin].join(bands, on="category")
+        inside = (now["actual"] >= now["forecast"] * now["low_mult"]) & (now["actual"] <= now["forecast"] * now["high_mult"])
+        checks.append(now.assign(inside_band=inside))
+    coverage = pd.concat(checks, ignore_index=True)
+
+    return {"weekly": weekly, "coverage": coverage, "n_origins": weekly["origin"].nunique(),
+            "baseline_weeks": baseline_weeks}
 
 
 def scenario_bands(weekly_category: pd.DataFrame, low_q: float = 0.10, high_q: float = 0.90) -> pd.DataFrame:

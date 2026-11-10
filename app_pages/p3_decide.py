@@ -1,4 +1,4 @@
-"""Pagina 3 — Decide (și primul pas din Act).
+"""Pagina 3: Decide (și primul pas din Act).
 
 Compară cererea estimată cu stocul și transformă rezultatul în acțiuni concrete:
 comandă la furnizor, contactează clientul, gestionează suprastocul, pregătește evenimentul."""

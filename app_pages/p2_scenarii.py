@@ -1,4 +1,4 @@
-"""Pagina 2 — Eveniment și scenarii.
+"""Pagina 2: Eveniment și scenarii.
 
 Alegi un eveniment, o categorie, stocul, prețul și perioada. Pagina arată cererea estimată
 în trei scenarii (scăzut / de bază / ridicat) și stocul recomandat."""

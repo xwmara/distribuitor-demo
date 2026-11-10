@@ -1,5 +1,5 @@
 """
-generate_data.py — generează datele SIMULATE ale proiectului.
+generate_data.py: generează datele SIMULATE ale proiectului.
 
 "Distribuitor Demo SRL" este o firmă fictivă. Nimic din acest fișier nu provine
 de la o companie reală: clienții, produsele, prețurile și comenzile sunt

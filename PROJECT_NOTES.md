@@ -76,7 +76,7 @@ Fluxul datelor: `generate_data.py` → `data/*.csv` → `model.py` (calcule) →
 
 **4. Acuratețea prognozei (`p4_acuratete.py`)**
 - Perioada de antrenare (01.11.2024–30.11.2025) și perioada de test (01.12.2025–31.10.2026, 47 de săptămâni complete).
-- MAPE total: **11,0%**. Pe categorii: congelate 8,6%, lactate 14,4%, băuturi 10,0%.
+- MAPE total: **11,0%**, WAPE total: **11,0%**. MAPE pe categorii: congelate 8,6%, lactate 14,4%, băuturi 10,0%.
 - Grafic prognoză vs. real, pe săptămâni, pentru categoria aleasă.
 - MAPE pe tip de săptămână: eveniment 12,0%, normală 10,9%, post 10,9%.
 - Nota „Când trebuie lărgit intervalul”, calculată din date:
@@ -84,6 +84,10 @@ Fluxul datelor: `generate_data.py` → `data/*.csv` → `model.py` (calcule) →
   - verificarea erorii pe ultimele 4 săptămâni față de pragul de 1,5 × media;
   - regula generală: evenimente rare, eroare recentă mare, istoric scurt, condiții noi.
 - Tabelul benzilor de scenariu și cele mai mari 5 erori.
+- **Verificări suplimentare** (`model.rolling_backtest`), pe aceleași 47 de săptămâni:
+  - model reantrenat lunar (11 reantrenări, fiecare prezice doar luna următoare): MAPE 11,4%, WAPE 11,1%. Rezultatul e stabil;
+  - baseline naiv (media reală a ultimelor 4 săptămâni dinaintea lunii): MAPE 18,6%, WAPE 17,9%. Modelul are cu **38%** mai puțină eroare (WAPE);
+  - banda scenariilor calibrată doar pe lunile anterioare a cuprins realul în **78%** din 38 de săptămâni (ținta pentru P10–P90: 80%).
 
 ---
 
@@ -145,7 +149,8 @@ Se calculează ca 1 − Φ((stoc − cerere_livrare) ÷ σ_livrare), cu σ_livra
 - Multiplicatorii sunt pe tip de client × categorie, nu pe client × produs. Efectele specifice, ca înghețata vara sau hotelurile vara, sunt doar parțial prinse.
 - Cererea pe zi e o medie (cantitate × frecvență ÷ interval). Modelul nu știe în ce zi exactă vine fiecare comandă, de aceea MAPE se măsoară pe săptămână.
 - Trendul nu e modelat explicit. E compensat parțial de fereastra recentă de 180 de zile.
-- Benzile de scenariu și σ sunt calibrate pe aceeași perioadă de test pe care se raportează MAPE. În producție ar trebui un backtest pe ferestre succesive.
+- Benzile de scenariu și σ folosite în aplicație sunt calibrate pe perioada de test. Le-am verificat și fără privit în viitor (backtest pe ferestre succesive): acoperire 78%, față de ținta de 80%.
+- Testul acoperă un singur an, deci fiecare eveniment (Crăciun, Paște) a fost testat o singură dată.
 - Unitățile pe categorie sunt un amestec de ambalaje (pungi, baxuri, litri), acceptabil doar pentru demo.
 - Pragurile de exces (60 / 21 / 45 de zile) și nivelul de serviciu sunt reguli de business alese de mână, nu rezultate din date.
 - Pasul „Act” doar generează un CSV. Nu trimite nimic nicăieri.
@@ -158,10 +163,10 @@ Se calculează ca 1 − Φ((stoc − cerere_livrare) ÷ σ_livrare), cu σ_livra
 Scopul e un model pe care îl poate explica oricine din business, iar fiecare cifră se poate urmări până la CSV. Cu 25 de clienți și 2 ani de date, un model complex ar învăța zgomotul. Modelul simplu e un baseline bun. Un model ML, de exemplu gradient boosting pe aceleași variabile, ar trebui să-l bată în backtest ca să merite complexitatea.
 
 **2. Cum eviți data leakage în evaluare?**
-Modelul de test e antrenat strict până la 30.11.2025. Ritmul, multiplicatorii și cantitatea tipică se calculează doar din acea perioadă, apoi prognoza se compară cu dec. 2025 – oct. 2026. Limita rămasă: benzile de scenariu sunt calibrate pe aceeași perioadă de test. Corect ar fi un backtest pe ferestre succesive (rolling origin).
+Modelul de test e antrenat strict până la 30.11.2025. Ritmul, multiplicatorii și cantitatea tipică se calculează doar din acea perioadă, apoi prognoza se compară cu dec. 2025 – oct. 2026. În plus, backtestul pe ferestre succesive reantrenează modelul la începutul fiecărei luni, doar cu datele de până atunci, și verifică benzile scenariilor calibrate doar pe lunile anterioare (acoperire 78%, țintă 80%).
 
 **3. De ce MAPE săptămânal pe categorie, nu pe fiecare comandă?**
-Pe linie de comandă, realul e des 0 sau foarte mic, iar MAPE devine infinit sau instabil. Agregat pe săptămână, eroarea de „ziua exactă” dispare și rămâne ce contează pentru stoc. Pentru producție aș folosi și WAPE (eroarea totală ÷ volumul total) sau MASE, care nu explodează la valori mici.
+Pe linie de comandă, realul e des 0 sau foarte mic, iar MAPE devine infinit sau instabil. Agregat pe săptămână, eroarea de „ziua exactă” dispare și rămâne ce contează pentru stoc. Aplicația raportează și WAPE (eroarea totală ÷ volumul total, 11,0%), care nu explodează la valori mici. Ca reper, un baseline naiv are WAPE 17,9%.
 
 **4. Ce faci cu un client sau un produs nou (cold start)?**
 Fără istoric nu există ritm sau cantitate tipică. Folosești media segmentului (de exemplu, „cafenea din Cluj”) până la primele 5–8 comenzi, apoi treci treptat pe datele clientului. Banda de scenariu trebuie lărgită în perioada asta.

@@ -1,5 +1,5 @@
 """
-decide.py — transformă prognoza în acțiuni (pasul "Decide" din ciclul Predict → Decide → Act).
+decide.py: transformă prognoza în acțiuni (pasul "Decide" din ciclul Predict → Decide → Act).
 
 Regulile sunt simple și explicite, ca un om să le poată verifica:
 1. Produs cu stocul sub punctul de recomandă         → "Comandă acum la furnizor"
